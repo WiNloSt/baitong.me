@@ -1,57 +1,45 @@
 import React from 'react'
-import { Router, Link } from 'react-static'
+import { Router } from 'react-static'
 import styled, { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
 //
 import Routes from 'react-static-routes'
+import { Nav } from './components/Nav'
 
 injectGlobal`
   body {
-    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+    font-family: 'Tajawal', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
       'Lucida Grande', sans-serif;
     font-weight: 300;
     font-size: 16px;
     margin: 0;
     padding: 0;
+    color: #333;
+  }
+
+  strong {
+    font-weight: bold;
   }
 `
 
 const AppStyles = styled.div`
-  a {
-    text-decoration: none;
-    color: #108db8;
-    font-weight: bold;
+  .container {
+    max-width: 1200px;
+    margin: auto;
   }
 
-  nav {
-    width: 100%;
-    background: #108db8;
-
-    a {
-      color: white;
-      padding: 1rem;
-      display: inline-block;
+  .child-v-mid {
+    > * {
+      vertical-align: middle !important;
     }
-  }
-
-  .content {
-    padding: 1rem;
-  }
-
-  img {
-    max-width: 100%;
   }
 `
 
 const App = () => (
   <Router>
     <AppStyles>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/blog">Blog</Link>
-      </nav>
-      <div className="content">
+      <Nav className="mt4" />
+      <div className="container pa3">
         <Routes />
       </div>
     </AppStyles>
