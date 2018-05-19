@@ -15,6 +15,7 @@ injectGlobal`
     margin: 0;
     padding: 0;
     color: #333;
+    background: #f2f2f2;
   }
 
   strong {
