@@ -39,8 +39,8 @@ export const Footer = () => (
     <Link to="https://www.facebook.com/Natthapattong-174414203275588/" target="_blank">
       <Icon name="facebook-f" x={10} y={2} />
     </Link>
-    <Link to="https://twitter.com" target="_blank">
-      <Icon className="ml4" name="twitter" x={3} y={3} />
+    <Link to="https://www.behance.net/onatthapato" target="_blank">
+      <Icon className="ml4" name="behance" x={1} y={1} />
     </Link>
   </FooterContainer>
 )
