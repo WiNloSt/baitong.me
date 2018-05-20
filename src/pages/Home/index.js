@@ -56,7 +56,7 @@ export default () => (
             <img src={musicPlayer} alt="Music player UI" />
           </ImageContainer>
           <div className="flex-1 pl4 flex flex-column justify-center">
-            <Header className="normal pl5">MY PORTFOLIO</Header>
+            <Header className="normal pl5-ns mr4 nowrap">MY PORTFOLIO</Header>
             <p style={{ lineHeight: 2 }}>
               I create my arts from many inspirations with dedication. I made different styles of
               arts to pratice and improve my skills. I hope my artworks will inspire you and hope
