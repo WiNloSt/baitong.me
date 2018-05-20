@@ -24,7 +24,7 @@ const NavContainer = styled.nav`
 `
 
 export const Nav = ({ className }) => (
-  <NavContainer className={`f3 ${className}`}>
+  <NavContainer className={`f6 ${className}`}>
     <div className="container flex items-center justify-around">
       <Link to="/">Home</Link>
       <Link to="/">Portfolio</Link>
