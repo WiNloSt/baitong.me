@@ -1,27 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-static'
 import styled from 'styled-components'
 
 import logo from './assets/logo.png'
-
-const NavContainer = styled.nav`
-  a,
-  a:visited {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #808080;
-    outline: none;
-
-    :hover {
-      color: #4d4d4d;
-    }
-
-    :active {
-      color: #333;
-    }
-  }
-`
+import { Link } from '../Link'
 
 const Logo = styled.img`
   width: 74.5px;
@@ -34,25 +16,25 @@ const Logo = styled.img`
 `
 
 export const Nav = ({ className }) => (
-  <NavContainer className={`f6 ${className}`}>
+  <div className={`f6 ${className}`}>
     <div className="container flex flex-column flex-row-ns items-center justify-around">
       <Link to="/" className="mt3 mt0-ns order-1">
-        Home
+        HOME
       </Link>
       <Link to="/" className="mt3 mt0-ns order-1">
-        Portfolio
+        PORTFOLIO
       </Link>
       <Link to="/" className="order-1-ns">
         <Logo src={logo} />
       </Link>
       <Link to="/" className="mt3 mt0-ns order-1">
-        About
+        ABOUT
       </Link>
       <Link to="/" className="mt3 mt0-ns order-1">
-        Contact
+        CONTACT
       </Link>
     </div>
-  </NavContainer>
+  </div>
 )
 
 Nav.propTypes = {
