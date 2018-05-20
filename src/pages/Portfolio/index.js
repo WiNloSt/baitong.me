@@ -19,6 +19,7 @@ const Container = styled.div`
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   > div {
     box-sizing: border-box;
