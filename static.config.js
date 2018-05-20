@@ -36,6 +36,18 @@ export default {
             <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffc0cb" />
             <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css" />
             <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet" />
+            <link
+              rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.0.13/css/brands.css"
+              integrity="sha384-VGCZwiSnlHXYDojsRqeMn3IVvdzTx5JEuHgqZ3bYLCLUBV8rvihHApoA1Aso2TZA"
+              crossOrigin="anonymous"
+            />
+            <link
+              rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.0.13/css/fontawesome.css"
+              integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV"
+              crossOrigin="anonymous"
+            />
             <meta name="msapplication-TileColor" content="#ffc0cb" />
             <meta name="theme-color" content="#ffc0cb" />
             {renderMeta.styleTags}

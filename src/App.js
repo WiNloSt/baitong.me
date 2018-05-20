@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader'
 //
 import Routes from 'react-static-routes'
 import { Nav } from './components/Nav'
+import { Footer } from './components/Footer'
 
 injectGlobal`
   body {
@@ -55,6 +56,7 @@ const App = () => (
       <div>
         <Routes />
       </div>
+      <Footer />
     </AppStyles>
   </Router>
 )
