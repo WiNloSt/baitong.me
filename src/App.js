@@ -34,6 +34,18 @@ const AppStyles = styled.div`
       vertical-align: middle !important;
     }
   }
+
+  .flex-0 {
+    flex: 0;
+  }
+
+  .flex-1 {
+    flex: 1;
+  }
+
+  .flex-2 {
+    flex: 2;
+  }
 `
 
 const App = () => (
