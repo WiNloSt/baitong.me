@@ -4,20 +4,23 @@ import styled from 'styled-components'
 import bg from './assets/bg.png'
 import photo from './assets/photo.png'
 
-const ImageBackgroundContainer = styled.div`
+const FirstSection = styled.div`
   position: relative;
-  height: 700px;
 `
 
-const Photo = styled.div`
-  position: relative;
-  width: 528px;
-  height: 298px;
-  background-image: url(${photo});
+const Bg = styled.img`
+  transform: translateX(-50%);
+  left: 50%;
+`
+
+const Photo = styled.img`
+  width: 100%;
+  max-width: 45.2910959%; // 529 / (1200 - 16 * 2)
   user-select: none;
   transform: translateX(-50%);
   left: 50%;
-  top: 70px;
+  top: 10%;
+  box-shadow: 10rem 10em 0px 6px rgb(255, 255, 255, 0.6);
 
   &::before {
     content: '';
@@ -25,15 +28,14 @@ const Photo = styled.div`
     width: 100%;
     height: 100%;
     transform: translate(100px, 125px);
-    box-shadow: 0em 0em 0px 6px rgb(255, 255, 255, 0.6);
   }
 `
 
 export default () => (
-  <div>
-    <ImageBackgroundContainer>
-      <img src={bg} alt="" className="absolute" />
+  <div className="container pa3">
+    <FirstSection>
+      <Bg src={bg} alt="" className="relative" />
       <Photo src={photo} alt="" className="absolute" />
-    </ImageBackgroundContainer>
+    </FirstSection>
   </div>
 )

@@ -40,7 +40,7 @@ const App = () => (
   <Router>
     <AppStyles>
       <Nav className="mt3 mt4-ns" />
-      <div className="container pa3">
+      <div>
         <Routes />
       </div>
     </AppStyles>
