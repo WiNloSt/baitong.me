@@ -32,11 +32,15 @@ const ImageContainer = styled.div`
 const Header = styled.h2`
   position: relative;
   align-self: flex-start;
-  font-size: 40px;
+  font-size: 30px;
+
+  @media only screen and (min-width: 480px) {
+    font-size: 40px;
+  }
 
   ::before {
     content: 'more of my ideas';
-    font-size: 20px;
+    font-size: 0.5em;
     color: #999;
     position: absolute;
     bottom: 0;
