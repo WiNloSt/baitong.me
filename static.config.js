@@ -9,6 +9,18 @@ export default {
         component: 'src/pages/Home'
       },
       {
+        path: '/portfolio',
+        component: 'src/pages/Portfolio'
+      },
+      {
+        path: '/about',
+        component: 'src/pages/About'
+      },
+      {
+        path: '/contact',
+        component: 'src/pages/Contact'
+      },
+      {
         is404: true,
         component: 'src/pages/404'
       }

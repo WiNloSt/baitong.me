@@ -21,16 +21,16 @@ export const Nav = ({ className }) => (
       <Link to="/" className="mt3 mt0-ns order-1">
         HOME
       </Link>
-      <Link to="/" className="mt3 mt0-ns order-1">
+      <Link to="/portfolio" className="mt3 mt0-ns order-1">
         PORTFOLIO
       </Link>
       <Link to="/" className="order-1-ns">
         <Logo src={logo} />
       </Link>
-      <Link to="/" className="mt3 mt0-ns order-1">
+      <Link to="/about" className="mt3 mt0-ns order-1">
         ABOUT
       </Link>
-      <Link to="/" className="mt3 mt0-ns order-1">
+      <Link to="/contact" className="mt3 mt0-ns order-1">
         CONTACT
       </Link>
     </div>

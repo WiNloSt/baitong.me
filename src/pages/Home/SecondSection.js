@@ -62,7 +62,7 @@ export const SecondSection = () => (
             to pratice and improve my skills. I hope my artworks will inspire you and hope you love
             my works. Thank you!
           </p>
-          <Link className="self-start" to="/">
+          <Link className="self-start" to="/portfolio">
             see more
           </Link>
         </div>
