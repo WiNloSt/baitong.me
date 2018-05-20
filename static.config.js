@@ -38,6 +38,12 @@ export default {
             <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet" />
             <link
               rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.0.13/css/solid.css"
+              integrity="sha384-Rw5qeepMFvJVEZdSo1nDQD5B6wX0m7c5Z/pLNvjkB14W6Yki1hKbSEQaX9ffUbWe"
+              crossOrigin="anonymous"
+            />
+            <link
+              rel="stylesheet"
               href="https://use.fontawesome.com/releases/v5.0.13/css/brands.css"
               integrity="sha384-VGCZwiSnlHXYDojsRqeMn3IVvdzTx5JEuHgqZ3bYLCLUBV8rvihHApoA1Aso2TZA"
               crossOrigin="anonymous"

@@ -48,7 +48,6 @@ const Header = styled.h2`
     display: block;
   }
 `
-
 export const SecondSection = () => (
   <Container>
     <div className="container pa3 pt5">

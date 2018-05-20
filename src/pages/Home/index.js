@@ -5,6 +5,7 @@ import { FirstSection } from './FirstSection'
 import { SecondSection } from './SecondSection'
 import circle from './assets/circle.png'
 import line from './assets/line.png'
+import { Footer } from '../../components/Footer'
 
 const circleStyle = css`
   ::before {
@@ -127,5 +128,6 @@ export default () => (
         </WorkExperienceLeft>
       </div>
     </div>
+    <Footer />
   </React.Fragment>
 )
