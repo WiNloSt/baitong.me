@@ -23,14 +23,34 @@ const NavContainer = styled.nav`
   }
 `
 
+const Logo = styled.img`
+  width: 74.5px;
+  height: 65px;
+
+  @media (min-width: 30em) {
+    width: 149px;
+    height: 130px;
+  }
+`
+
 export const Nav = ({ className }) => (
   <NavContainer className={`f6 ${className}`}>
-    <div className="container flex items-center justify-around">
-      <Link to="/">Home</Link>
-      <Link to="/">Portfolio</Link>
-      <img src={logo} />
-      <Link to="/">About</Link>
-      <Link to="/">Contact</Link>
+    <div className="container flex flex-column flex-row-ns items-center justify-around">
+      <Link to="/" className="mt3 mt0-ns order-1">
+        Home
+      </Link>
+      <Link to="/" className="mt3 mt0-ns order-1">
+        Portfolio
+      </Link>
+      <Link to="/" className="order-1-ns">
+        <Logo src={logo} />
+      </Link>
+      <Link to="/" className="mt3 mt0-ns order-1">
+        About
+      </Link>
+      <Link to="/" className="mt3 mt0-ns order-1">
+        Contact
+      </Link>
     </div>
   </NavContainer>
 )

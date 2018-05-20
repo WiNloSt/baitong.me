@@ -39,7 +39,7 @@ const AppStyles = styled.div`
 const App = () => (
   <Router>
     <AppStyles>
-      <Nav className="mt4" />
+      <Nav className="mt3 mt4-ns" />
       <div className="container pa3">
         <Routes />
       </div>
