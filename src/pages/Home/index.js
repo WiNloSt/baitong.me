@@ -1,77 +1,40 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { FirstSection } from './FirstSection'
-import musicPlayer from './assets/music-player.png'
-import { Link } from '../../components/Link'
-
-const SecondSection = styled.div`
-  background-color: #f7f7f7;
-`
-
-const FlexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media only screen and (min-width: 768px) {
-    flex-direction: unset;
-  }
-
-  > img {
-  }
-
-  > div {
-  }
-`
-
-const ImageContainer = styled.div`
-  flex: 1.4;
-  min-width: 200px;
-  max-width: 673px;
-`
-
-const Header = styled.h2`
-  position: relative;
-  align-self: flex-start;
-  font-size: 30px;
-
-  @media only screen and (min-width: 480px) {
-    font-size: 40px;
-  }
-
-  ::before {
-    content: 'more of my ideas';
-    font-size: 0.5em;
-    color: #999;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: translate(1.5em, 1em);
-    display: block;
-  }
-`
+import { SecondSection } from './SecondSection'
 
 export default () => (
   <React.Fragment>
     <FirstSection />
-    <SecondSection>
-      <div className="container pa3 pt5">
-        <FlexContainer>
-          <ImageContainer>
-            <img src={musicPlayer} alt="Music player UI" />
-          </ImageContainer>
-          <div className="flex-1 pl4 flex flex-column justify-center">
-            <Header className="normal pl5-ns mr4 nowrap">MY PORTFOLIO</Header>
-            <p style={{ lineHeight: 2 }}>
-              I create my arts from many inspirations with dedication. I made different styles of
-              arts to pratice and improve my skills. I hope my artworks will inspire you and hope
-              you love my works. Thank you!
-            </p>
-            <Link className="self-start" to="/">
-              see more
-            </Link>
-          </div>
-        </FlexContainer>
+    <SecondSection />
+    <div className="mb5">
+      <div className="container">
+        <h2 className="tc normal f4 mb4">WORK EXPERIENCES</h2>
+        <div className="w-50 ml-auto pv3 pl5">
+          <h2 className="f5 normal ma0">PRODUCER</h2>
+          <p className="f5 mt0">2015 - 2018 at Teapot Studio</p>
+          <p className="text-grey">
+            - Manage project from conception through deployment, and act as both a customer partnet
+            and an internal team leader.
+          </p>
+          <p className="text-grey">
+            - Manage daily project assignments, provide team direction and lead team meeting to
+            complete projects with clear objectives, agendas and outcomes.
+          </p>
+          <p className="text-grey mb0">
+            - Coordinate between different internal teams to ensure high work quality and
+            consistency.
+          </p>
+        </div>
+        <div className="w-50 pv3 pr5 tr">
+          <h2 className="f5 normal ma0">2D Arkavis</h2>
+          <p className="f5 mt0">2014 - 2015 at Teapot Studio</p>
+          <p className="text-grey">- Produce high quality artworks following UI/UX standards.</p>
+          <p className="text-grey mb0">
+            - Create and deliver artworks to customers according to requirements.
+          </p>
+        </div>
       </div>
-    </SecondSection>
+    </div>
   </React.Fragment>
 )

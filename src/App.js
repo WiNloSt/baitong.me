@@ -22,6 +22,18 @@ injectGlobal`
   strong {
     font-weight: bold;
   }
+
+  .text-black {
+    color: #333;
+  }
+
+  .text-grey {
+    color: #808080;
+  }
+
+  .text-light-grey {
+    color: #b3b3b3;
+  }
 `
 
 const AppStyles = styled.div`
