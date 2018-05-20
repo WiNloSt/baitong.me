@@ -36,7 +36,8 @@ injectGlobal`
 
   .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .child-v-mid {

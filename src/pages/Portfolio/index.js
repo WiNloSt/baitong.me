@@ -12,8 +12,6 @@ import heroesGuardianIcons from './assets/heroes-guardian-icons.png'
 const Container = styled.div`
   background-image: url(${bg});
   background-repeat: no-repeat;
-  margin-bottom: -937px !important; /* Because injectGlobal comes last :(((*/
-  padding-bottom: 937px;
 `
 
 const FlexContainer = styled.div`
@@ -22,8 +20,9 @@ const FlexContainer = styled.div`
   justify-content: center;
 
   > div {
+    flex: 33%;
+    min-width: 280px;
     box-sizing: border-box;
-    max-width: 400px;
     padding: 0.5em;
     transition: transform 0.5s;
 
@@ -40,7 +39,7 @@ const FlexContainer = styled.div`
 
 export default () => (
   <React.Fragment>
-    <Container className="container">
+    <Container className="container mb3 mb5-ns">
       <h2 className="normal text-grey tc pt3 pt5-ns"> ARTWORK</h2>
       <FlexContainer>
         <div>
