@@ -33,12 +33,10 @@ injectGlobal`
   .text-light-grey {
     color: #b3b3b3;
   }
-`
 
-const AppStyles = styled.div`
   .container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
   }
 
   .child-v-mid {
@@ -59,6 +57,8 @@ const AppStyles = styled.div`
     flex: 2;
   }
 `
+
+const AppStyles = styled.div``
 
 const App = () => (
   <Router>
