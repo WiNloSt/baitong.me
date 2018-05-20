@@ -60,7 +60,7 @@ export default () => (
             <p style={{ lineHeight: 2 }}>
               I create my arts from many inspirations with dedication. I made different styles of
               arts to pratice and improve my skills. I hope my artworks will inspire you and hope
-              you love my works. Thank you !
+              you love my works. Thank you!
             </p>
             <Link className="self-start" to="/">
               see more
