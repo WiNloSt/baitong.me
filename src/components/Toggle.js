@@ -17,7 +17,7 @@ export class Toggle extends React.Component {
     }))
 
   render() {
-    return this.props.children({ on: this.state, setOn: this.setOn, toggle: this.toggle })
+    return this.props.children({ on: this.state.on, setOn: this.setOn, toggle: this.toggle })
   }
 }
 

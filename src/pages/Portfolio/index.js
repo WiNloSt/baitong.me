@@ -79,7 +79,11 @@ export default () => (
               </div>
             </FlexContainer>
           </Container>
-          <Modal open={on}>wow</Modal>
+          <Modal open={on} onClose={() => setOn(false)}>
+            <button className="pointer fr mr3 mt3 mr5-l mt4-l" onClick={() => setOn(false)}>
+              X
+            </button>
+          </Modal>
         </React.Fragment>
       )
     }}
