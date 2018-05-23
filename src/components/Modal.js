@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled, { injectGlobal } from 'styled-components'
 import posed, { PoseGroup } from 'react-pose'
+import { canUseDOM } from '../utils'
 
 injectGlobal`
   body.modal-open {
@@ -25,6 +26,10 @@ const ModalContainer = styled(Posed)`
 `
 
 export const Modal = ({ open, children, onClose }) => {
+  if (!canUseDOM()) {
+    return null
+  }
+
   if (open) {
     document.body.classList.add('modal-open')
   } else {
