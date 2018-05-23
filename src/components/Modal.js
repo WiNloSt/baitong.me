@@ -40,6 +40,9 @@ export const Modal = ({ open, children, onClose }) => {
     <PoseGroup>
       {open ? (
         <ModalContainer key="1" onClick={onClose}>
+          <button className="pointer fr mr3 mt3 mr5-l mt4-l" onClick={onClose}>
+            X
+          </button>
           {children}
         </ModalContainer>
       ) : null}
@@ -53,3 +56,22 @@ Modal.propTypes = {
   children: PropTypes.node.isRequired,
   onClose: PropTypes.func
 }
+
+const ModalHeaderContainer = styled.div`
+  max-width: 800px;
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+`
+
+const ModalHeader = ({ children }) => (
+  <ModalHeaderContainer className="ml2 mr2 mt5 mt3-l ml-auto-l mr-auto-l">
+    {children}
+  </ModalHeaderContainer>
+)
+
+ModalHeader.propTypes = {
+  children: PropTypes.node.isRequired
+}
+
+Modal.Header = ModalHeader
