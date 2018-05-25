@@ -24,6 +24,10 @@ const Dimmer = styled(Posed)`
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   text-align: center;
+`
+const ScrollingContent = styled.div`
+  height: 100%;
+  overflow-y: auto;
 
   &::after {
     content: '';
@@ -41,11 +45,6 @@ const ModalContainer = styled.div`
   border-radius: 3px;
   padding: 1rem 2rem;
   vertical-align: middle;
-`
-
-const ScrollingContent = styled.div`
-  height: 100%;
-  overflow-y: auto;
 `
 
 const preventExitOnClicked = e => e.stopPropagation()
