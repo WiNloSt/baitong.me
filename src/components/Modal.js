@@ -49,39 +49,57 @@ const ModalContainer = styled.div`
 
 const preventExitOnClicked = e => e.stopPropagation()
 
-export const Modal = ({ open, children, onClose }) => {
-  if (!canUseDOM()) {
-    return null
+export class Modal extends React.Component {
+  static propTypes = {
+    open: PropTypes.bool,
+    children: PropTypes.node.isRequired,
+    onClose: PropTypes.func
   }
 
-  if (open) {
-    document.body.classList.add('modal-open')
-  } else {
-    document.body.classList.remove('modal-open')
+  closeOnEscape = e => {
+    if (e.key === 'Escape') {
+      this.props.onClose && this.props.onClose()
+    }
   }
 
-  return ReactDOM.createPortal(
-    <PoseGroup>
-      {open ? (
-        <Dimmer key="1" onClick={onClose}>
-          <i
-            className="white absolute right-0 fas fa-times pointer mr3 mt3 mr5-l mt4-l"
-            onClick={onClose}
-          />
-          <ScrollingContent>
-            <ModalContainer className="ml2 mr2 mv5 mv3-l" onClick={preventExitOnClicked}>
-              {children}
-            </ModalContainer>
-          </ScrollingContent>
-        </Dimmer>
-      ) : null}
-    </PoseGroup>,
-    document.getElementById('modal-root')
-  )
-}
+  componentDidMount() {
+    document.addEventListener('keydown', this.closeOnEscape)
+  }
 
-Modal.propTypes = {
-  open: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  onClose: PropTypes.func
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.closeOnEscape)
+  }
+
+  render() {
+    if (!canUseDOM()) {
+      return null
+    }
+
+    const { open, children, onClose } = this.props
+
+    if (open) {
+      document.body.classList.add('modal-open')
+    } else {
+      document.body.classList.remove('modal-open')
+    }
+
+    return ReactDOM.createPortal(
+      <PoseGroup>
+        {open ? (
+          <Dimmer key="1" onClick={onClose}>
+            <i
+              className="white absolute right-0 fas fa-times pointer mr3 mt3 mr5-l mt4-l"
+              onClick={onClose}
+            />
+            <ScrollingContent>
+              <ModalContainer className="ml2 mr2 mv5 mv3-l" onClick={preventExitOnClicked}>
+                {children}
+              </ModalContainer>
+            </ScrollingContent>
+          </Dimmer>
+        ) : null}
+      </PoseGroup>,
+      document.getElementById('modal-root')
+    )
+  }
 }
