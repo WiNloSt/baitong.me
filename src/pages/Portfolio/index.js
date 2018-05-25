@@ -4,12 +4,17 @@ import styled from 'styled-components'
 import bg from './assets/bg.png'
 import musicPlayer from './assets/music-player.png'
 import fashion from './assets/fashion.png'
+import fashionPopup from './assets/fashion-popup.png'
 import galleryApp from './assets/gallery-app.png'
+import galleryAppPopup from './assets/gallery-app-popup.png'
 import favicon from './assets/favicon.png'
 import foodApp from './assets/food-app.png'
+import foodAppPopup from './assets/food-app-popup.png'
 import heroesGuardianIcons from './assets/heroes-guardian-icons.png'
+import heroesGuardianIconsPopup from './assets/heroes-guardian-icons-popup.png'
 import { Modal } from '../../components/Modal'
 import { Toggle } from '../../components/Toggle'
+import { canUseDOM } from '../../utils'
 
 const Container = styled.div`
   background-image: url(${bg});
@@ -39,51 +44,78 @@ const FlexContainer = styled.div`
   }
 `
 
-export default () => (
-  <Toggle>
-    {({ on, setOn, ...props }) => {
-      return (
-        <React.Fragment>
-          <Container className="container mb3 mb5-ns">
-            <h2 className="normal text-grey tc pt3 pt5-ns">ARTWORK</h2>
-            <FlexContainer>
-              <div>
-                <a onClick={() => setOn(true)}>
-                  <img src={musicPlayer} alt="Music player UI" />
-                </a>
-              </div>
-              <div>
-                <a onClick={() => setOn(true)}>
-                  <img src={fashion} alt="Fashion website UI" />
-                </a>
-              </div>
-              <div>
-                <a onClick={() => setOn(true)}>
-                  <img src={galleryApp} alt="Gallery application UI" />
-                </a>
-              </div>
-              <div>
-                <a onClick={() => setOn(true)}>
-                  <img src={favicon} alt="Favicon UI" />
-                </a>
-              </div>
-              <div>
-                <a onClick={() => setOn(true)}>
-                  <img src={foodApp} alt="Healthy Sweet UI" />
-                </a>
-              </div>
-              <div>
-                <a onClick={() => setOn(true)}>
-                  <img src={heroesGuardianIcons} alt="Heroes Guardian in-game icons" />
-                </a>
-              </div>
-            </FlexContainer>
-          </Container>
-          <Modal open={on} onClose={() => setOn(false)}>
-            <img src={heroesGuardianIcons} alt="" />
-          </Modal>
-        </React.Fragment>
-      )
-    }}
-  </Toggle>
-)
+const PreloadImage = () => {
+  if (canUseDOM()) {
+    const images = [fashionPopup, galleryAppPopup, foodAppPopup, heroesGuardianIconsPopup]
+    images.forEach(image => {
+      const img = new window.Image()
+      img.src = image
+    })
+  }
+  return null
+}
+
+export default class extends React.Component {
+  state = {
+    currentImageSrc: null
+  }
+
+  render() {
+    return (
+      <Toggle>
+        {({ on, setOn }) => {
+          const createOnClick = image => () => {
+            this.setState({
+              currentImageSrc: image
+            })
+            setOn(true)
+          }
+
+          return (
+            <React.Fragment>
+              <Container className="container mb3 mb5-ns">
+                <h2 className="normal text-grey tc pt3 pt5-ns">ARTWORK</h2>
+                <FlexContainer>
+                  <div>
+                    <a onClick={createOnClick(musicPlayer)}>
+                      <img src={musicPlayer} alt="Music player UI" />
+                    </a>
+                  </div>
+                  <div>
+                    <a onClick={createOnClick(fashionPopup)}>
+                      <img src={fashion} alt="Fashion website UI" />
+                    </a>
+                  </div>
+                  <div>
+                    <a onClick={createOnClick(galleryAppPopup)}>
+                      <img src={galleryApp} alt="Gallery application UI" />
+                    </a>
+                  </div>
+                  <div>
+                    <a onClick={createOnClick(favicon)}>
+                      <img src={favicon} alt="Favicon UI" />
+                    </a>
+                  </div>
+                  <div>
+                    <a onClick={createOnClick(foodAppPopup)}>
+                      <img src={foodApp} alt="Healthy Sweet UI" />
+                    </a>
+                  </div>
+                  <div>
+                    <a onClick={createOnClick(heroesGuardianIconsPopup)}>
+                      <img src={heroesGuardianIcons} alt="Heroes Guardian in-game icons" />
+                    </a>
+                  </div>
+                </FlexContainer>
+              </Container>
+              <Modal open={on} onClose={() => setOn(false)}>
+                <img src={this.state.currentImageSrc} alt="Image showcase" />
+              </Modal>
+              <PreloadImage />
+            </React.Fragment>
+          )
+        }}
+      </Toggle>
+    )
+  }
+}
