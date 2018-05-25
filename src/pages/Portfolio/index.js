@@ -45,7 +45,7 @@ export default () => (
       return (
         <React.Fragment>
           <Container className="container mb3 mb5-ns">
-            <h2 className="normal text-grey tc pt3 pt5-ns"> ARTWORK</h2>
+            <h2 className="normal text-grey tc pt3 pt5-ns">ARTWORK</h2>
             <FlexContainer>
               <div>
                 <a onClick={() => setOn(true)}>
@@ -80,7 +80,7 @@ export default () => (
             </FlexContainer>
           </Container>
           <Modal open={on} onClose={() => setOn(false)}>
-            <Modal.Header>header naja</Modal.Header>
+            <img src={heroesGuardianIcons} alt="" />
           </Modal>
         </React.Fragment>
       )

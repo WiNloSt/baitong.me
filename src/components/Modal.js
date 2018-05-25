@@ -16,14 +16,39 @@ const Posed = posed.div({
   exit: { opacity: 0 }
 })
 
-const ModalContainer = styled(Posed)`
+const Dimmer = styled(Posed)`
   top: 0;
   left: 0;
   position: fixed !important;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
 `
+
+const ModalContainer = styled.div`
+  display: inline-block;
+  max-width: 800px;
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  padding: 1rem 2rem;
+  vertical-align: middle;
+`
+
+const ScrollingContent = styled.div`
+  height: 100%;
+  overflow-y: auto;
+`
+
+const preventExitOnClicked = e => e.stopPropagation()
 
 export const Modal = ({ open, children, onClose }) => {
   if (!canUseDOM()) {
@@ -39,12 +64,17 @@ export const Modal = ({ open, children, onClose }) => {
   return ReactDOM.createPortal(
     <PoseGroup>
       {open ? (
-        <ModalContainer key="1" onClick={onClose}>
-          <button className="pointer fr mr3 mt3 mr5-l mt4-l" onClick={onClose}>
-            X
-          </button>
-          {children}
-        </ModalContainer>
+        <Dimmer key="1" onClick={onClose}>
+          <i
+            className="white absolute right-0 fas fa-times pointer mr3 mt3 mr5-l mt4-l"
+            onClick={onClose}
+          />
+          <ScrollingContent>
+            <ModalContainer className="ml2 mr2 mv5 mv3-l" onClick={preventExitOnClicked}>
+              {children}
+            </ModalContainer>
+          </ScrollingContent>
+        </Dimmer>
       ) : null}
     </PoseGroup>,
     document.getElementById('modal-root')
@@ -56,22 +86,3 @@ Modal.propTypes = {
   children: PropTypes.node.isRequired,
   onClose: PropTypes.func
 }
-
-const ModalHeaderContainer = styled.div`
-  max-width: 800px;
-  background: white;
-  border-radius: 1rem;
-  padding: 1rem 2rem;
-`
-
-const ModalHeader = ({ children }) => (
-  <ModalHeaderContainer className="ml2 mr2 mt5 mt3-l ml-auto-l mr-auto-l">
-    {children}
-  </ModalHeaderContainer>
-)
-
-ModalHeader.propTypes = {
-  children: PropTypes.node.isRequired
-}
-
-Modal.Header = ModalHeader
