@@ -39,7 +39,7 @@ const ScrollingContent = styled.div`
 
 const ModalContainer = styled.div`
   display: inline-block;
-  max-width: 800px;
+  max-width: 1200px;
   width: 100%;
   background: white;
   border-radius: 3px;
