@@ -41,6 +41,8 @@ const ScrollingContent = styled.div`
 
 const ModalContainer = styled.div`
   display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   max-width: ${props => {
     switch (props.size) {
       case 'large':
@@ -49,7 +51,7 @@ const ModalContainer = styled.div`
         return 800
     }
   }}px;
-  width: 100%;
+  width: calc(100% - 1rem);
   background: white;
   border-radius: 3px;
   overflow: hidden; /* for hiding content on full modal */
@@ -109,7 +111,7 @@ export class Modal extends React.Component {
             <ScrollingContent>
               <ModalContainer
                 size={this.props.size}
-                className={classNames('ml2 mr2 mv5 mv3-l', { 'pv3 ph4': !this.props.full })}
+                className={classNames('mt5 mb3 mv3-l', { 'pv3 ph4': !this.props.full })}
                 onClick={preventExitOnClicked}>
                 {children}
               </ModalContainer>
