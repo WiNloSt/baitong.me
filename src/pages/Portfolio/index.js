@@ -108,7 +108,7 @@ export default class extends React.Component {
                   </div>
                 </FlexContainer>
               </Container>
-              <Modal open={on} onClose={() => setOn(false)}>
+              <Modal full size="large" open={on} onClose={() => setOn(false)}>
                 <img src={this.state.currentImageSrc} alt="Image showcase" />
               </Modal>
               <PreloadImage />

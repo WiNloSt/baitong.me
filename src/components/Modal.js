@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled, { injectGlobal } from 'styled-components'
 import posed, { PoseGroup } from 'react-pose'
+import classNames from 'classnames'
+
 import { canUseDOM } from '../utils'
 
 injectGlobal`
@@ -39,12 +41,23 @@ const ScrollingContent = styled.div`
 
 const ModalContainer = styled.div`
   display: inline-block;
-  max-width: 1200px;
+  max-width: ${props => {
+    switch (props.size) {
+      case 'large':
+        return 1200
+      default:
+        return 800
+    }
+  }}px;
   width: 100%;
   background: white;
   border-radius: 3px;
-  padding: 1rem 2rem;
+  overflow: hidden; /* for hiding content on full modal */
   vertical-align: middle;
+
+  > img {
+    vertical-align: top;
+  }
 `
 
 const preventExitOnClicked = e => e.stopPropagation()
@@ -53,7 +66,9 @@ export class Modal extends React.Component {
   static propTypes = {
     open: PropTypes.bool,
     children: PropTypes.node.isRequired,
-    onClose: PropTypes.func
+    onClose: PropTypes.func,
+    size: PropTypes.oneOf(['large']),
+    full: PropTypes.bool
   }
 
   closeOnEscape = e => {
@@ -92,7 +107,10 @@ export class Modal extends React.Component {
               onClick={onClose}
             />
             <ScrollingContent>
-              <ModalContainer className="ml2 mr2 mv5 mv3-l" onClick={preventExitOnClicked}>
+              <ModalContainer
+                size={this.props.size}
+                className={classNames('ml2 mr2 mv5 mv3-l', { 'pv3 ph4': !this.props.full })}
+                onClick={preventExitOnClicked}>
                 {children}
               </ModalContainer>
             </ScrollingContent>
