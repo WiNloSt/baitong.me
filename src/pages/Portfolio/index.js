@@ -25,6 +25,7 @@ const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: hidden;
 
   > div {
     flex: 33%;
