@@ -28,15 +28,25 @@ const Container = styled.div`
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
 
   > div {
-    flex: 33%;
+    flex: 1;
     min-width: 280px;
     box-sizing: border-box;
     padding: 0.5em;
     transition: transform 0.5s;
+
+    /* 2 column */
+    @media only screen and (min-width: 560px) {
+      flex: 0 0 50%;
+    }
+
+    /* 3 column */
+    @media only screen and (min-width: 840px) {
+      flex: 0 0 33%;
+    }
 
     > img {
       border-radius: 0.25em;
@@ -86,7 +96,7 @@ export default class extends React.Component {
           return (
             <React.Fragment>
               <Container className="container mb3 mb5-ns">
-                <h2 className="normal text-grey tc pt3 pt5-ns">ARTWORK</h2>
+                <h2 className="normal text-grey tc pt3 pt4-ns">ARTWORK</h2>
                 <FlexContainer>
                   <div>
                     <a onClick={createOnClick(musicPlayer)}>
@@ -124,7 +134,7 @@ export default class extends React.Component {
                     </a>
                   </div>
                 </FlexContainer>
-                <h2 className="normal text-grey tc pt3 pt5-ns">PRODUCER PROJECTS</h2>
+                <h2 className="normal text-grey tc pt3 pt4-ns">PRODUCER PROJECTS</h2>
                 <FlexContainer>
                   <div>
                     <a onClick={createOnClick(crocodileMeseumPopup)}>
