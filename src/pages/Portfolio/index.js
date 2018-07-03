@@ -12,6 +12,10 @@ import foodApp from './assets/food-app.png'
 import foodAppPopup from './assets/food-app-popup.png'
 import heroesGuardianIcons from './assets/heroes-guardian-icons.png'
 import heroesGuardianIconsPopup from './assets/heroes-guardian-icons-popup.png'
+import heroesGuardianWeb from './assets/heroes-guardian-web.png'
+import heroesGuardianWebPopup from './assets/heroes-guardian-web-popup.png'
+import crocodileMeseum from './assets/crocodile-meseum.png'
+import crocodileMeseumPopup from './assets/crocodile-meseum-popup.png'
 import { Modal } from '../../components/Modal'
 import { Toggle } from '../../components/Toggle'
 import { canUseDOM } from '../../utils'
@@ -47,7 +51,14 @@ const FlexContainer = styled.div`
 
 const PreloadImage = () => {
   if (canUseDOM()) {
-    const images = [fashionPopup, galleryAppPopup, foodAppPopup, heroesGuardianIconsPopup]
+    const images = [
+      fashionPopup,
+      galleryAppPopup,
+      foodAppPopup,
+      heroesGuardianIconsPopup,
+      heroesGuardianWebPopup,
+      crocodileMeseumPopup
+    ]
     images.forEach(image => {
       const img = new window.Image()
       img.src = image
@@ -105,6 +116,19 @@ export default class extends React.Component {
                   <div>
                     <a onClick={createOnClick(heroesGuardianIconsPopup)}>
                       <img src={heroesGuardianIcons} alt="Heroes Guardian in-game icons" />
+                    </a>
+                  </div>
+                  <div>
+                    <a onClick={createOnClick(heroesGuardianWebPopup)}>
+                      <img src={heroesGuardianWeb} alt="Heroes Guardian web" />
+                    </a>
+                  </div>
+                </FlexContainer>
+                <h2 className="normal text-grey tc pt3 pt5-ns">PRODUCER PROJECTS</h2>
+                <FlexContainer>
+                  <div>
+                    <a onClick={createOnClick(crocodileMeseumPopup)}>
+                      <img src={crocodileMeseum} alt="Crocodile museum web" />
                     </a>
                   </div>
                 </FlexContainer>
