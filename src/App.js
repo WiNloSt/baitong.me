@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router } from 'react-static'
-import styled, { injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
 //
 import Routes from 'react-static-routes'
@@ -59,16 +59,12 @@ injectGlobal`
   }
 `
 
-const AppStyles = styled.div``
-
 const App = () => (
   <Router>
-    <AppStyles>
+    <div>
       <Nav className="mt3 mt4-ns" />
-      <div>
-        <Routes />
-      </div>
-    </AppStyles>
+      <Routes />
+    </div>
   </Router>
 )
 
