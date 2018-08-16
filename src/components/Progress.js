@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Circle as UnstyledCircle } from './Circle'
@@ -18,6 +19,14 @@ export const Progress = ({ progress, ...props }) => {
     .fill(100)
     .concat(((progress % 20) / 20) * 100)
   return (
-    <Container {...props}>{progressArray.map(progress => <Circle fill={progress} />)}</Container>
+    <Container {...props}>
+      {progressArray.map(progress => (
+        <Circle fill={progress} />
+      ))}
+    </Container>
   )
+}
+
+Progress.propTypes = {
+  progress: PropTypes.number
 }
