@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import musicPlayer from './assets/music-player.png'
-import { Link } from '../../components/Link'
+import { Link } from '../../../components/Link'
 
 const Container = styled.div`
   background-color: #f7f7f7;

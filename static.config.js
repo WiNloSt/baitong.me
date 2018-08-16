@@ -9,20 +9,24 @@ export default {
         component: 'src/pages/Home'
       },
       {
-        path: '/portfolio',
-        component: 'src/pages/Portfolio'
+        path: '/v2',
+        component: 'src/pages/v2/Home'
       },
       {
-        path: '/about',
-        component: 'src/pages/About'
+        path: '/v2/portfolio',
+        component: 'src/pages/v2/Portfolio'
       },
       {
-        path: '/contact',
-        component: 'src/pages/Contact'
+        path: '/v2/about',
+        component: 'src/pages/v2/About'
+      },
+      {
+        path: '/v2/contact',
+        component: 'src/pages/v2/Contact'
       },
       {
         is404: true,
-        component: 'src/pages/404'
+        component: 'src/pages/v2/404'
       }
     ]
   },

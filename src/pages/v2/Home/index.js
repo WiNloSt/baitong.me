@@ -2,7 +2,7 @@ import React from 'react'
 
 import { FirstSection } from './FirstSection'
 import { SecondSection } from './SecondSection'
-import { Footer } from '../../components/Footer'
+import { Footer } from '../../../components/Footer'
 import { ThirdSection } from './ThirdSection'
 
 export default () => (

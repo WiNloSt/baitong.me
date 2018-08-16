@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import logo from './assets/logo.png'
 import { Link } from '../Link'
+import { withRouter } from 'react-static'
 
 const Logo = styled.img`
   width: 74.5px;
@@ -15,28 +16,31 @@ const Logo = styled.img`
   }
 `
 
-export const Nav = ({ className }) => (
+const Component = ({ className, match }) => (
   <div className={`f6 ${className}`}>
     <div className="container flex flex-column flex-row-ns items-center justify-around">
-      <Link to="/" className="mt3 mt0-ns order-1">
+      <Link to={`${match.path}/`} className="mt3 mt0-ns order-1">
         HOME
       </Link>
-      <Link to="/portfolio" className="mt3 mt0-ns order-1">
+      <Link to={`${match.path}/portfolio`} className="mt3 mt0-ns order-1">
         PORTFOLIO
       </Link>
-      <Link to="/" className="order-1-ns">
+      <Link to={`${match.path}/`} className="order-1-ns">
         <Logo src={logo} />
       </Link>
-      <Link to="/about" className="mt3 mt0-ns order-1">
+      <Link to={`${match.path}/about`} className="mt3 mt0-ns order-1">
         ABOUT
       </Link>
-      <Link to="/contact" className="mt3 mt0-ns order-1">
+      <Link to={`${match.path}/contact`} className="mt3 mt0-ns order-1">
         CONTACT
       </Link>
     </div>
   </div>
 )
 
-Nav.propTypes = {
-  className: PropTypes.string
+Component.propTypes = {
+  className: PropTypes.string,
+  match: PropTypes.object
 }
+
+export const Nav = withRouter(Component)

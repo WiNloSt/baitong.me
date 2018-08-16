@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import profile from './assets/profile.png'
-import { Progress as UnstyledProgress } from '../../components/Progress'
+import { Progress as UnstyledProgress } from '../../../components/Progress'
 
 const Container = styled.div`
   max-width: 1000px;
@@ -90,29 +90,36 @@ export default () => (
       <div className="mb3 mt4">
         Adobe Illustrator
         <FloatRight>
-          <Progress progress={90} />90%
+          <Progress progress={90} />
+          90%
         </FloatRight>
       </div>
       <div className="mv3">
         Adobe Photoshop
         <FloatRight>
-          <Progress progress={90} />90%
+          <Progress progress={90} />
+          90%
         </FloatRight>
       </div>
       <div className="mv3">
         UX/UI
         <FloatRight>
-          <Progress progress={50} />50%
+          <Progress progress={50} />
+          50%
         </FloatRight>
       </div>
       <div className="mv3">
-        Microsoft Office<FloatRight>
-          <Progress progress={50} />50%
+        Microsoft Office
+        <FloatRight>
+          <Progress progress={50} />
+          50%
         </FloatRight>
       </div>
       <div className="mv3">
-        C++ / C#<FloatRight>
-          <Progress progress={30} />30%
+        C++ / C#
+        <FloatRight>
+          <Progress progress={30} />
+          30%
         </FloatRight>
       </div>
       <h2>SUMMARY OF QUALIFICATIONS</h2>

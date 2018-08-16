@@ -1,9 +1,9 @@
 import React from 'react'
-import { Router } from 'react-static'
+import { Router, Route } from 'react-static'
 import { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
-//
 import Routes from 'react-static-routes'
+
 import { Nav } from './components/Nav'
 
 injectGlobal`
@@ -62,7 +62,7 @@ injectGlobal`
 const App = () => (
   <Router>
     <div>
-      <Nav className="mt3 mt4-ns" />
+      <Route path="/v2" render={() => <Nav className="mt3 mt4-ns" />} />
       <Routes />
     </div>
   </Router>

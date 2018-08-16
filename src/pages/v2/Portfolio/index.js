@@ -16,9 +16,9 @@ import heroesGuardianWeb from './assets/heroes-guardian-web.png'
 import heroesGuardianWebPopup from './assets/heroes-guardian-web-popup.png'
 import crocodileMeseum from './assets/crocodile-meseum.png'
 import crocodileMeseumPopup from './assets/crocodile-meseum-popup.png'
-import { Modal } from '../../components/Modal'
-import { Toggle } from '../../components/Toggle'
-import { canUseDOM } from '../../utils'
+import { Modal } from '../../../components/Modal'
+import { Toggle } from '../../../components/Toggle'
+import { canUseDOM } from '../../../utils'
 
 const Container = styled.div`
   background-image: url(${bg});
