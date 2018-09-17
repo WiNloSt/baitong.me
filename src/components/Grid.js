@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 // eslint-disable-next-line react/prop-types
-const InternalGrid = ({ children, columns, className }) => (
-  <div className={className}>
+const InternalGrid = ({ children, columns, className, style }) => (
+  <div className={className} style={style}>
     {React.Children.map(
       children,
       child =>
@@ -21,8 +21,11 @@ export const Grid = styled(InternalGrid)`
 `
 
 const Col = styled(({ maxColumns, center, ...props }) => <div {...props} />)`
-  width: ${props => props.width}%;
+  display: inline-block;
+  vertical-align: top;
+  width: ${props => props.width}px;
   width: ${({ maxColumns, columns }) => (columns / maxColumns) * 100 + '%'};
+  margin-left: ${({ maxColumns, offset }) => (offset / maxColumns) * 100 + '%'};
   text-align: ${props => props.center && 'center'};
 `
 
