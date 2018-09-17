@@ -1,6 +1,6 @@
 import React from 'react'
-import { Router, Route } from 'react-static'
-import { injectGlobal } from 'styled-components'
+import { Router, Route, Switch } from 'react-static'
+import styled, { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 
@@ -8,62 +8,95 @@ import { Nav } from './components/Nav'
 
 injectGlobal`
   body {
-    font-family: 'Tajawal', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
-      'Lucida Grande', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
     margin: 0;
     padding: 0;
-    color: #333;
-    background: #f2f2f2;
   }
+`
 
-  strong {
-    font-weight: bold;
-  }
+const AppStyle = styled.div`
+  &:not(.v2) {
+    font-family: 'Fira Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+      Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-size: 14px;
 
-  .text-black {
-    color: #333;
-  }
-
-  .text-grey {
-    color: #808080;
-  }
-
-  .text-light-grey {
-    color: #b3b3b3;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .child-v-mid {
-    > * {
-      vertical-align: middle !important;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 14px;
     }
   }
 
-  .flex-0 {
-    flex: 0;
-  }
+  &.v2 {
+    font-family: 'Tajawal', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+      Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #333;
+    background: #f2f2f2;
+    border: 1px solid transparent;
 
-  .flex-1 {
-    flex: 1;
-  }
+    strong {
+      font-weight: bold;
+    }
 
-  .flex-2 {
-    flex: 2;
+    .text-black {
+      color: #333;
+    }
+
+    .text-grey {
+      color: #808080;
+    }
+
+    .text-light-grey {
+      color: #b3b3b3;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .child-v-mid {
+      > * {
+        vertical-align: middle !important;
+      }
+    }
+
+    .flex-0 {
+      flex: 0;
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
+
+    .flex-2 {
+      flex: 2;
+    }
   }
 `
 
 const App = () => (
   <Router>
     <div>
-      <Route path="/v2" render={() => <Nav className="mt3 mt4-ns" />} />
-      <Routes />
+      <Route>
+        {({ location }) => {
+          const isV2 = location.pathname.startsWith('/v2')
+          return (
+            <AppStyle className={isV2 ? 'v2' : ''}>
+              <Switch>
+                <Route path="/v2" render={() => <Nav className="mt3 mt4-ns" />} />
+                <Route render={() => <nav>nav ของ v1 นาka</nav>} />
+              </Switch>
+              <Routes />
+            </AppStyle>
+          )
+        }}
+      </Route>
     </div>
   </Router>
 )
