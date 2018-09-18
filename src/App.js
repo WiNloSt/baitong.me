@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 
 import { Nav } from './components/Nav'
+import { Helmet } from 'react-helmet'
 
 injectGlobal`
   body {
@@ -89,7 +90,20 @@ const App = () => (
           return (
             <AppStyle className={isV2 ? 'v2' : ''}>
               <Switch>
-                <Route path="/v2" render={() => <Nav className="mt3 mt4-ns" />} />
+                <Route
+                  path="/v2"
+                  render={() => (
+                    <React.Fragment>
+                      <Helmet>
+                        <link
+                          rel="stylesheet"
+                          href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css"
+                        />
+                      </Helmet>
+                      <Nav className="mt3 mt4-ns" />
+                    </React.Fragment>
+                  )}
+                />
                 <Route render={() => <nav>nav ของ v1 นาka</nav>} />
               </Switch>
               <Routes />
