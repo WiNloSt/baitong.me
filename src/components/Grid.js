@@ -20,9 +20,16 @@ export const Grid = styled(InternalGrid)`
   margin-right: auto;
 `
 
-const Col = styled(({ maxColumns, center, ...props }) => <div {...props} />)`
+const alignSelfMap = {
+  top: 'flex-start',
+  middle: 'center',
+  bottom: 'flex-end'
+}
+
+const Col = styled(({ maxColumns, center, verticalAlign, ...props }) => <div {...props} />)`
   display: inline-block;
-  vertical-align: top;
+  vertical-align: ${({ verticalAlign = 'top' }) => verticalAlign};
+  align-self: ${props => alignSelfMap[props.verticalAlign] || 'flex-start'};
   width: ${props => props.width}px;
   width: ${({ maxColumns, columns }) => (columns / maxColumns) * 100 + '%'};
   margin-left: ${({ maxColumns, offset }) => (offset / maxColumns) * 100 + '%'};

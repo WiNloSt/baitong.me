@@ -6,11 +6,13 @@ import iconPattern from './assets/iconPattern.png'
 import computer from './assets/computer@2x.png'
 import girl from './assets/girl@2x.png'
 import line from './assets/line.svg'
+import paperPlain from './assets/paperPlain@2x.png'
 import skills from './assets/skills@2x.png'
 import brush from './assets/icons/brush@2x.png'
 import graduate from './assets/icons/graduate@2x.png'
 import pencil from './assets/icons/pencil@2x.png'
 import web from './assets/icons/web@2x.png'
+import { Icon } from '../../components/Icon'
 
 const patternHeight = 201
 
@@ -71,14 +73,16 @@ Segment.defaultProps = {
   className: 'container'
 }
 
-const VerticalCenterRestSpace = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-`
+// eslint-disable-next-line react/prop-types
+const Header = ({ title }) => (
+  <Grid columns={16}>
+    <Grid.Col offset={7}>
+      <h2>{title}</h2>
+    </Grid.Col>
+  </Grid>
+)
 
-const Icon = styled.i`
+const AboutMeIcon = styled.i`
   display: block;
   width: 48px;
   height: 48px;
@@ -112,7 +116,7 @@ const AboutMeBlock = styled(Grid.Col)`
 const AboutMe = ({ icon, header, children }) => (
   <React.Fragment>
     <Grid.Col width={48}>
-      <Icon icon={icon} />
+      <AboutMeIcon icon={icon} />
     </Grid.Col>
     <AboutMeBlock>
       <h3>{header}</h3>
@@ -122,7 +126,27 @@ const AboutMe = ({ icon, header, children }) => (
 )
 
 const Footer = styled.footer`
-  background-color: #acadad;
+  height: 100px;
+  background-color: #363636;
+
+  > div {
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+
+    > p {
+      color: white;
+    }
+
+    .icon:not(:last-child) {
+      margin-right: 28px;
+    }
+  }
 `
 
 export default () => (
@@ -133,21 +157,15 @@ export default () => (
     </Background>
     <Background color="#F2DBFF">
       <Segment>
+        <Header title="PORTFOLIO" />
         <Grid columns={16}>
-          <Grid.Col offset={7}>
-            <h2>PORTFOLIO</h2>
-          </Grid.Col>
-        </Grid>
-        <Grid columns={16}>
-          <Grid.Col offset={3} columns={4}>
-            <VerticalCenterRestSpace>
-              <h3 className="decorated">LET'S SEE MY WORK</h3>
-              <p className="indent">
-                I create my arts from many inspirations with dedication. I made different styles of
-                arts to pratice and improve my skills. I hope my artworks will inspire you and hope
-                you love my works. Thank you!
-              </p>
-            </VerticalCenterRestSpace>
+          <Grid.Col offset={3} columns={4} verticalAlign="middle">
+            <h3 className="decorated">LET'S SEE MY WORK</h3>
+            <p className="indent">
+              I create my arts from many inspirations with dedication. I made different styles of
+              arts to pratice and improve my skills. I hope my artworks will inspire you and hope
+              you love my works. Thank you!
+            </p>
           </Grid.Col>
           <Grid.Col columns={7} center>
             <img src={girl} width={450} />
@@ -157,15 +175,11 @@ export default () => (
     </Background>
     <Background color="#FFE338">
       <Segment>
-        <Grid columns={16}>
-          <Grid.Col offset={7}>
-            <h2>ABOUT ME</h2>
-          </Grid.Col>
-        </Grid>
+        <Header title="ABOUT ME" />
         <Grid columns={16}>
           <Grid.Col offset={3} columns={4}>
             <AboutMe icon={brush} header="Design">
-              <div>
+              <p>
                 Photoshop
                 <br />
                 Illustration
@@ -175,12 +189,12 @@ export default () => (
                 Web design
                 <br />
                 Graphic design
-              </div>
+              </p>
             </AboutMe>
           </Grid.Col>
           <Grid.Col offset={2} columns={4}>
             <AboutMe icon={graduate} header="Education">
-              <div>
+              <p>
                 2010 - 2014
                 <br />
                 Silpakorn University
@@ -188,7 +202,7 @@ export default () => (
                 <br />
                 Bachelor's degree in Information and <br />
                 Communication Technology
-              </div>
+              </p>
             </AboutMe>
           </Grid.Col>
         </Grid>
@@ -199,7 +213,7 @@ export default () => (
           </Grid.Col>
           <Grid.Col offset={2} columns={4}>
             <AboutMe icon={web} header="Website">
-              <div>
+              <p>
                 Web : Baitong.me
                 <br />
                 Behance :{' '}
@@ -208,7 +222,7 @@ export default () => (
                 </a>
                 <br />
                 Facebook :{' '}
-                <a href="https://www.facebook.com/onatthapato" target="_blank">
+                <a href="https://www.facebook.com/Natthapattong-174414203275588/" target="_blank">
                   Natthapat.tong
                 </a>
                 <br />
@@ -216,14 +230,66 @@ export default () => (
                 <a href="https://dribbble.com/natthapat-tong" target="_blank">
                   onatthapato
                 </a>
-              </div>
+              </p>
             </AboutMe>
           </Grid.Col>
         </Grid>
       </Segment>
     </Background>
-    <Background color="#FBF3FF">X</Background>
-    <Background color="#F2DBFF">X</Background>
-    <Footer>X</Footer>
+    <Background color="#FBF3FF">
+      <Segment>
+        <Header title="EXPERIENCES" />
+        <Grid columns={16}>
+          <Grid.Col offset={3} columns={4}>
+            <h3>
+              PRODUCER
+              <br />
+              2015 - 2018 at Teapot Studio
+            </h3>
+            <p>
+              - Manage project from conception
+              <br />
+              through deployment, and act as both <br />a customer partnet and an internal <br />
+              team leader.
+              <br />
+              <br />- Manage daily project assignments, <br />
+              provide team direction and lead team <br />
+              meeting to complete projects with clear <br />
+              objectives, agendas and outcomes.
+              <br />
+              <br />- Coordinate between different internal <br />
+              teams to ensure high work quality and <br />
+              consistency.
+            </p>
+          </Grid.Col>
+          <Grid.Col columns={3} verticalAlign="bottom">
+            <img src={paperPlain} width={173} />
+          </Grid.Col>
+          <Grid.Col columns={4} verticalAlign="bottom">
+            <h3>
+              2D ARTIST
+              <br />
+              2014 - 2015 at Teapot Studio
+            </h3>
+            <p>
+              - Produce high quality artworks following <br /> UI/UX standards.
+              <br />
+              <br />- Create and deliver artworks to customers <br />
+              according to requirements.
+              <br />
+            </p>
+          </Grid.Col>
+        </Grid>
+      </Segment>
+    </Background>
+    <Footer>
+      <div>
+        <p>baitong.me</p>
+        <div>
+          <Icon.Facebook color="#9a9a9a" />
+          <Icon.Behance color="#9a9a9a" />
+        </div>
+      </div>
+    </Footer>
   </React.Fragment>
 )
