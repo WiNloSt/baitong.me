@@ -1,11 +1,12 @@
 import React from 'react'
-import { Router, Route, Switch } from 'react-static'
+import { Router, Route, Switch, NavLink } from 'react-static'
 import styled, { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 
-import { Nav } from './components/Nav'
+import { Nav as V2Nav } from './components/Nav'
 import { Helmet } from 'react-helmet'
+import { Grid } from './components/Grid'
 
 injectGlobal`
   body {
@@ -81,6 +82,59 @@ const AppStyle = styled.div`
   }
 `
 
+const NavContianer = styled.nav`
+  position: absolute;
+  color: white;
+
+  ul {
+    list-style: none;
+    display: flex;
+    margin-top: 50px;
+    padding: 0;
+
+    li {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child)::after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        border-right: 1px solid white;
+        margin-left: 14px;
+        margin-right: 14px;
+      }
+    }
+  }
+
+  a {
+    font-weight: 700;
+    color: unset;
+    font-style: none;
+    text-decoration: none;
+
+    &:not(.active) {
+      opacity: 0.6;
+    }
+  }
+`
+
+const Nav = () => (
+  <NavContianer>
+    <ul>
+      <li>
+        <NavLink to="/" exact>
+          HOME
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/portfolio">PORTFOLIO</NavLink>
+      </li>
+    </ul>
+  </NavContianer>
+)
+
 const App = () => (
   <Router>
     <div>
@@ -100,11 +154,19 @@ const App = () => (
                           href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css"
                         />
                       </Helmet>
-                      <Nav className="mt3 mt4-ns" />
+                      <V2Nav className="mt3 mt4-ns" />
                     </React.Fragment>
                   )}
                 />
-                <Route render={() => <nav>nav ของ v1 นาka</nav>} />
+                <Route
+                  render={() => (
+                    <Grid columns={16}>
+                      <Grid.Col offset={2}>
+                        <Nav />
+                      </Grid.Col>
+                    </Grid>
+                  )}
+                />
               </Switch>
               <Routes />
             </AppStyle>
