@@ -9,6 +9,10 @@ export default {
         component: 'src/pages/Home'
       },
       {
+        path: '/portfolio',
+        component: 'src/pages/Portfolio'
+      },
+      {
         path: '/v2',
         component: 'src/pages/v2/Home'
       },
