@@ -9,6 +9,10 @@ export default {
         component: 'src/pages/Home'
       },
       {
+        path: '/portfolio',
+        component: 'src/pages/Portfolio'
+      },
+      {
         path: '/v2',
         component: 'src/pages/v2/Home'
       },
@@ -51,8 +55,10 @@ export default {
               <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
               <link rel="manifest" href="/site.webmanifest" />
               <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffc0cb" />
-              <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css" />
-              <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet" />
+              <link
+                href="https://fonts.googleapis.com/css?family=Tajawal|Fira+Sans"
+                rel="stylesheet"
+              />
               <link
                 rel="stylesheet"
                 href="https://use.fontawesome.com/releases/v5.0.13/css/solid.css"
