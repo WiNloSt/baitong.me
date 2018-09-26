@@ -14,10 +14,11 @@ import pencil from './assets/icons/pencil@2x.png'
 import web from './assets/icons/web@2x.png'
 import { Icon } from '../../components/Icon'
 
-const patternHeight = 201
+const patternHeight = 200
 
 const BackgroundHeader = styled.div`
   background-color: #ff87a4;
+  background-size: 100px;
   background-image: url(${iconPattern});
   height: ${patternHeight * 1.5}px;
 `
