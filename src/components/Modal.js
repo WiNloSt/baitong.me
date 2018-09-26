@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled, { injectGlobal } from 'styled-components'
 import posed, { PoseGroup } from 'react-pose'
-import classNames from 'classnames'
 
 import { canUseDOM } from '../utils'
 
@@ -26,6 +25,24 @@ const Dimmer = styled(Posed)`
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   text-align: center;
+
+  i {
+    color: white;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    margin-right: 1rem;
+    margin-top: 1rem;
+
+    @media only screen and (max-width: 479px) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (min-width: 480px) {
+      margin-right: 2rem;
+      font-size: 1.5rem;
+    }
+  }
 `
 const ScrollingContent = styled.div`
   height: 100%;
@@ -41,6 +58,8 @@ const ScrollingContent = styled.div`
 
 const ModalContainer = styled.div`
   display: inline-block;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   max-width: ${props => {
@@ -69,8 +88,7 @@ export class Modal extends React.Component {
     open: PropTypes.bool,
     children: PropTypes.node.isRequired,
     onClose: PropTypes.func,
-    size: PropTypes.oneOf(['large']),
-    full: PropTypes.bool
+    size: PropTypes.oneOf(['large'])
   }
 
   closeOnEscape = e => {
@@ -104,15 +122,9 @@ export class Modal extends React.Component {
       <PoseGroup>
         {open ? (
           <Dimmer key="1" onClick={onClose}>
-            <i
-              className="white absolute right-0 fas fa-times pointer mr3 mt3 mr5-l mt4-l"
-              onClick={onClose}
-            />
+            <i className="fas fa-times" onClick={onClose} />
             <ScrollingContent>
-              <ModalContainer
-                size={this.props.size}
-                className={classNames('mt5 mb3 mv3-l', { 'pv3 ph4': !this.props.full })}
-                onClick={preventExitOnClicked}>
+              <ModalContainer size={this.props.size} onClick={preventExitOnClicked}>
                 {children}
               </ModalContainer>
             </ScrollingContent>

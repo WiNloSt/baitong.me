@@ -86,6 +86,10 @@ const NavContianer = styled.nav`
   position: absolute;
   color: white;
 
+  @media only screen and (max-width: 479px) {
+    margin-left: 20px;
+  }
+
   ul {
     list-style: none;
     display: flex;

@@ -30,10 +30,16 @@ const Col = styled(({ maxColumns, center, verticalAlign, ...props }) => <div {..
   display: inline-block;
   vertical-align: ${({ verticalAlign = 'top' }) => verticalAlign};
   align-self: ${props => alignSelfMap[props.verticalAlign] || 'flex-start'};
+  text-align: ${props => props.center && 'center'};
+
+  @media only screen and (max-width: 479px) {
+    width: 100%;
+    margin-left: 0;
+  }
+
   width: ${props => props.width}px;
   width: ${({ maxColumns, columns }) => (columns / maxColumns) * 100 + '%'};
   margin-left: ${({ maxColumns, offset }) => (offset / maxColumns) * 100 + '%'};
-  text-align: ${props => props.center && 'center'};
 `
 
 Grid.Col = Col
