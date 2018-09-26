@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Grid } from '../../components/Grid'
+import { Grid as UnstyledGrid } from '../../components/Grid'
 import iconPattern from './assets/iconPattern.png'
 import computer from './assets/computer@2x.png'
 import girl from './assets/girl@2x.png'
@@ -14,6 +14,15 @@ import pencil from './assets/icons/pencil@2x.png'
 import web from './assets/icons/web@2x.png'
 import { Icon } from '../../components/Icon'
 
+const Grid = styled(UnstyledGrid)`
+  @media only screen and (max-width: 479px) {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+`
+
+Grid.Col = UnstyledGrid.Col
+
 const patternHeight = 200
 
 const BackgroundHeader = styled.div`
@@ -21,6 +30,10 @@ const BackgroundHeader = styled.div`
   background-size: 100px;
   background-image: url(${iconPattern});
   height: ${patternHeight * 1.5}px;
+
+  @media only screen and (max-width: 479px) {
+    height: ${patternHeight * 1}px;
+  }
 `
 
 const Background = styled.div`
@@ -29,16 +42,37 @@ const Background = styled.div`
   height: ${props => props.height}px;
 `
 
+const ComputerBackground = styled(Background)`
+  height: 228px;
+
+  @media only screen and (max-width: 479px) {
+    height: 150px;
+  }
+`
+
 const Computer = styled.div`
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   bottom: 70px;
-  background-position: center;
-  background-image: url(${computer});
-  background-size: contain;
-  width: 652px;
-  height: 290px;
+  transform: translateX(-50%);
+  max-width: 652px;
+  width: 100%;
+
+  @media only screen and (max-width: 479px) {
+    bottom: 50px;
+    width: 80%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background-position: center;
+    background-image: url(${computer});
+    background-size: contain;
+    width: 100%;
+    padding-bottom: 44.48%;
+  }
 `
 
 const Segment = styled.div`
@@ -111,6 +145,10 @@ const AboutMeBlock = styled(Grid.Col)`
       bottom: -6px;
     }
   }
+
+  p {
+    margin-bottom: 0;
+  }
 `
 
 // eslint-disable-next-line react/prop-types
@@ -119,7 +157,7 @@ const AboutMe = ({ icon, header, children }) => (
     <Grid.Col width={48}>
       <AboutMeIcon icon={icon} />
     </Grid.Col>
-    <AboutMeBlock>
+    <AboutMeBlock style={{ marginBottom: 20 }}>
       <h3>{header}</h3>
       {children}
     </AboutMeBlock>
@@ -134,6 +172,8 @@ const Footer = styled.footer`
     height: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -150,12 +190,18 @@ const Footer = styled.footer`
   }
 `
 
+const AboutMeGrid = styled(Grid)`
+  @media only screen and (min-width: 480px) {
+    margin-top: 40px;
+  }
+`
+
 export default () => (
   <React.Fragment>
     <BackgroundHeader />
-    <Background color="#FFF3F6" height={228}>
+    <ComputerBackground color="#FFF3F6">
       <Computer />
-    </Background>
+    </ComputerBackground>
     <Background color="#F2DBFF">
       <Segment>
         <Header title="PORTFOLIO" />
@@ -207,10 +253,11 @@ export default () => (
             </AboutMe>
           </Grid.Col>
         </Grid>
-        <Grid columns={16} style={{ marginTop: 40 }}>
+        <AboutMeGrid columns={16}>
           <Grid.Col offset={3} columns={4}>
-            <AboutMe icon={pencil} header="Skills" />
-            <img src={skills} width={225} style={{ marginTop: 18 }} />
+            <AboutMe icon={pencil} header="Skills">
+              <img src={skills} width={225} style={{ marginTop: 18 }} />
+            </AboutMe>
           </Grid.Col>
           <Grid.Col offset={2} columns={4}>
             <AboutMe icon={web} header="Website">
@@ -234,7 +281,7 @@ export default () => (
               </p>
             </AboutMe>
           </Grid.Col>
-        </Grid>
+        </AboutMeGrid>
       </Segment>
     </Background>
     <Background color="#FBF3FF">

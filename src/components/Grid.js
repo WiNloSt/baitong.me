@@ -18,6 +18,10 @@ export const Grid = styled(InternalGrid)`
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+
+  @media only screen and (max-width: 479px) {
+    flex-direction: column;
+  }
 `
 
 const alignSelfMap = {
@@ -31,6 +35,7 @@ const Col = styled(({ maxColumns, center, verticalAlign, ...props }) => <div {..
   vertical-align: ${({ verticalAlign = 'top' }) => verticalAlign};
   align-self: ${props => alignSelfMap[props.verticalAlign] || 'flex-start'};
   text-align: ${props => props.center && 'center'};
+  box-sizing: border-box;
 
   @media only screen and (max-width: 479px) {
     width: 100%;

@@ -16,6 +16,10 @@ injectGlobal`
 `
 
 const AppStyle = styled.div`
+  div {
+    box-sizing: border-box;
+  }
+
   &:not(.v2) {
     font-family: 'Fira Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
       Helvetica, Arial, 'Lucida Grande', sans-serif;
