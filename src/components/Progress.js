@@ -20,8 +20,8 @@ export const Progress = ({ progress, ...props }) => {
     .concat(((progress % 20) / 20) * 100)
   return (
     <Container {...props}>
-      {progressArray.map(progress => (
-        <Circle fill={progress} />
+      {progressArray.map((progress, index) => (
+        <Circle fill={progress} key={index} />
       ))}
     </Container>
   )

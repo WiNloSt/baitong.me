@@ -1,5 +1,23 @@
 import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
+import * as R from 'ramda'
+import axios from 'axios'
+
+const getAssetUrl = assets => imageData => {
+  return assets.find(asset => asset.sys.id === imageData.sys.id).fields.file.url
+}
+
+const extractPortfolio = contentfulData => {
+  return contentfulData.items.map(item => {
+    return R.evolve(
+      {
+        image: getAssetUrl(contentfulData.includes.Asset),
+        thumbnail: getAssetUrl(contentfulData.includes.Asset)
+      },
+      item.fields
+    )
+  })
+}
 
 export default {
   getRoutes: async () => {
@@ -33,6 +51,15 @@ export default {
         component: 'src/pages/v2/404'
       }
     ]
+  },
+  getSiteData: async () => {
+    const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN
+    const response = await axios.get(
+      `https://cdn.contentful.com/spaces/ma7q43kx1i9j/environments/master/entries?access_token=${accessToken}&content_type=portfolio&order=sys.createdAt`
+    )
+    return {
+      portfolio: extractPortfolio(response.data)
+    }
   },
   renderToHtml: (render, Comp, meta) => {
     const sheet = new ServerStyleSheet()

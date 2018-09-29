@@ -1,12 +1,13 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
 import { Grid } from '../../components/Grid'
 import { FlexContainer } from '../../components/FlexContainer'
-import { data } from './data'
 import { Modal } from '../../components/Modal'
 import { Toggle } from 'react-powerplug'
 import { canUseDOM } from '../../utils'
+import { withSiteData } from 'react-static';
 
 const preloadImage = imageSrc => {
   const image = new window.Image()
@@ -17,7 +18,11 @@ const NavBackground = styled.div`
   height: 120px;
   background-color: #ff88a5;
 `
-export default class extends React.Component {
+class Portfolio extends React.Component {
+  static propTypes = {
+    portfolio: PropTypes.array
+  }
+
   state = {
     image: '',
     altText: ''
@@ -25,7 +30,7 @@ export default class extends React.Component {
 
   componentDidMount() {
     if (canUseDOM()) {
-      data.forEach(item => preloadImage(item.image))
+      this.props.portfolio.forEach(item => preloadImage(item.image))
     }
   }
 
@@ -39,7 +44,7 @@ export default class extends React.Component {
               <Toggle>
                 {({ on, set }) => (
                   <React.Fragment>
-                    {data.map((item, index) => (
+                    {this.props.portfolio.map((item, index) => (
                       <div
                         key={index}
                         onClick={() => {
@@ -67,3 +72,5 @@ export default class extends React.Component {
     )
   }
 }
+
+export default withSiteData(Portfolio)
