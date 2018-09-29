@@ -128,6 +128,7 @@ const AboutMeIcon = styled.i`
 const AboutMeBlock = styled(Grid.Col)`
   margin-left: 12px;
   line-height: 1.5;
+  max-width: 220px;
 
   h3 {
     position: relative;
@@ -191,8 +192,20 @@ const Footer = styled.footer`
 `
 
 const AboutMeGrid = styled(Grid)`
-  @media only screen and (min-width: 480px) {
-    margin-top: 40px;
+  &:not(:first-child) {
+    @media only screen and (min-width: 720px) {
+      margin-top: 40px;
+    }
+  }
+
+  @media only screen and (min-width: 480px) and (max-width: 719px) {
+    flex-direction: column;
+
+    > ${Grid.Col} {
+      width: 100%;
+      margin-left: 0;
+      padding-left: 18.75%;
+    }
   }
 `
 
@@ -215,7 +228,7 @@ export default () => (
             </p>
           </Grid.Col>
           <Grid.Col columns={7} center>
-            <img src={girl} width={450} />
+            <img src={girl} style={{ width: '100%', maxWidth: 450 }} />
           </Grid.Col>
         </Grid>
       </Segment>
@@ -223,65 +236,66 @@ export default () => (
     <Background color="#FFE338">
       <Segment>
         <Header title="ABOUT ME" />
-        <Grid columns={16}>
-          <Grid.Col offset={3} columns={4}>
-            <AboutMe icon={brush} header="Design">
-              <p>
-                Photoshop
-                <br />
-                Illustration
-                <br />
-                UI / UX
-                <br />
-                Web design
-                <br />
-                Graphic design
-              </p>
-            </AboutMe>
-          </Grid.Col>
-          <Grid.Col offset={2} columns={4}>
-            <AboutMe icon={graduate} header="Education">
-              <p>
-                2010 - 2014
-                <br />
-                Silpakorn University
-                <br />
-                <br />
-                Bachelor's degree in Information and <br />
-                Communication Technology
-              </p>
-            </AboutMe>
-          </Grid.Col>
-        </Grid>
-        <AboutMeGrid columns={16}>
-          <Grid.Col offset={3} columns={4}>
-            <AboutMe icon={pencil} header="Skills">
-              <img src={skills} width={225} style={{ marginTop: 18 }} />
-            </AboutMe>
-          </Grid.Col>
-          <Grid.Col offset={2} columns={4}>
-            <AboutMe icon={web} header="Website">
-              <p>
-                Web : Baitong.me
-                <br />
-                Behance :{' '}
-                <a href="https://www.behance.net/onatthapato/" target="_blank">
-                  onatthapato
-                </a>
-                <br />
-                Facebook :{' '}
-                <a href="https://www.facebook.com/Natthapattong-174414203275588/" target="_blank">
-                  Natthapat.tong
-                </a>
-                <br />
-                Dribble :{' '}
-                <a href="https://dribbble.com/natthapat-tong" target="_blank">
-                  onatthapato
-                </a>
-              </p>
-            </AboutMe>
-          </Grid.Col>
-        </AboutMeGrid>
+        <div>
+          <AboutMeGrid columns={16}>
+            <Grid.Col offset={3} columns={4}>
+              <AboutMe icon={brush} header="Design">
+                <p>
+                  Photoshop
+                  <br />
+                  Illustration
+                  <br />
+                  UI / UX
+                  <br />
+                  Web design
+                  <br />
+                  Graphic design
+                </p>
+              </AboutMe>
+            </Grid.Col>
+            <Grid.Col offset={2}>
+              <AboutMe icon={graduate} header="Education">
+                <p>
+                  2010 - 2014
+                  <br />
+                  Silpakorn University
+                  <br />
+                  <br />
+                  Bachelor's degree in Information and Communication Technology
+                </p>
+              </AboutMe>
+            </Grid.Col>
+          </AboutMeGrid>
+          <AboutMeGrid columns={16}>
+            <Grid.Col offset={3} columns={4}>
+              <AboutMe icon={pencil} header="Skills">
+                <img src={skills} width={225} style={{ marginTop: 18 }} />
+              </AboutMe>
+            </Grid.Col>
+            <Grid.Col offset={2} columns={4}>
+              <AboutMe icon={web} header="Website">
+                <p>
+                  Web : Baitong.me
+                  <br />
+                  Behance :{' '}
+                  <a href="https://www.behance.net/onatthapato/" target="_blank">
+                    onatthapato
+                  </a>
+                  <br />
+                  Facebook :{' '}
+                  <a href="https://www.facebook.com/Natthapattong-174414203275588/" target="_blank">
+                    Natthapat.tong
+                  </a>
+                  <br />
+                  Dribble :{' '}
+                  <a href="https://dribbble.com/natthapat-tong" target="_blank">
+                    onatthapato
+                  </a>
+                </p>
+              </AboutMe>
+            </Grid.Col>
+          </AboutMeGrid>
+        </div>
       </Segment>
     </Background>
     <Background color="#FBF3FF">
