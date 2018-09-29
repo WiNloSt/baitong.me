@@ -63,6 +63,10 @@ const Computer = styled.div`
     width: 80%;
   }
 
+  @media only screen and (min-width: 480px) and (max-width: 720px) {
+    width: 80%;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -70,6 +74,7 @@ const Computer = styled.div`
     background-position: center;
     background-image: url(${computer});
     background-size: contain;
+    background-repeat: no-repeat;
     width: 100%;
     padding-bottom: 44.48%;
   }
