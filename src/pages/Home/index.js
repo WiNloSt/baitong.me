@@ -25,6 +25,52 @@ const Grid = styled(UnstyledGrid)`
       order: -1;
     }
   }
+
+  ${UnstyledGrid.Col}.paper-plain {
+    img {
+      width: 173px;
+    }
+
+    @media only screen and (max-width: 479px) {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    @media only screen and (min-width: 480px) {
+      position: relative;
+      width: 173px;
+      margin-right: 20px;
+      flex-shrink: 5;
+
+      img {
+        position: absolute;
+      }
+
+      + ${UnstyledGrid.Col} {
+        z-index: 1;
+        
+        @media only screen and (min-width: 480px) {
+          margin-right: 3rem;
+        }
+      }
+
+      @media only screen and (max-width: 719px) {
+        img {
+          top: 0;
+          left: 50px;
+        }
+      }
+
+      @media only screen and (min-width: 720px) {
+        align-self: flex-end;
+
+        img {
+          bottom: 0;
+        }
+      }
+    }
+  }
 `
 
 Grid.Col = UnstyledGrid.Col
@@ -313,43 +359,36 @@ export default () => (
       <Segment>
         <Header title="EXPERIENCES" />
         <Grid columns={16}>
-          <Grid.Col offset={3} columns={4}>
+          <Grid.Col offset={3} width={300}>
             <h3>
               PRODUCER
               <br />
               2015 - 2018 at Teapot Studio
             </h3>
             <p>
-              - Manage project from conception
+              - Manage project from conception through deployment, and act as bothd a customer
+              partnet and an internal team leader.
               <br />
-              through deployment, and act as both <br />a customer partnet and an internal <br />
-              team leader.
+              <br />- Manage daily project assignments, provide team direction and lead team meeting
+              to complete projects with clear objectives, agendas and outcomes.
               <br />
-              <br />- Manage daily project assignments, <br />
-              provide team direction and lead team <br />
-              meeting to complete projects with clear <br />
-              objectives, agendas and outcomes.
-              <br />
-              <br />- Coordinate between different internal <br />
-              teams to ensure high work quality and <br />
+              <br />- Coordinate between different internal teams to ensure high work quality and
               consistency.
             </p>
           </Grid.Col>
-          <Grid.Col columns={3} verticalAlign="bottom">
-            <img src={paperPlain} width={173} />
+          <Grid.Col className="paper-plain">
+            <img src={paperPlain} />
           </Grid.Col>
-          <Grid.Col columns={4} verticalAlign="bottom">
+          <Grid.Col width={300} verticalAlign="bottom" className="2d-artist">
             <h3>
               2D ARTIST
               <br />
               2014 - 2015 at Teapot Studio
             </h3>
             <p>
-              - Produce high quality artworks following <br /> UI/UX standards.
+              - Produce high quality artworks following UI/UX standards.
               <br />
-              <br />- Create and deliver artworks to customers <br />
-              according to requirements.
-              <br />
+              <br />- Create and deliver artworks to customers according to requirements.
             </p>
           </Grid.Col>
         </Grid>
