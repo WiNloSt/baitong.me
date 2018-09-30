@@ -19,6 +19,12 @@ const Grid = styled(UnstyledGrid)`
     margin-left: 3rem;
     margin-right: 3rem;
   }
+
+  ${UnstyledGrid.Col}.girl {
+    @media only screen and (max-width: 479px) {
+      order: -1;
+    }
+  }
 `
 
 Grid.Col = UnstyledGrid.Col
@@ -232,7 +238,7 @@ export default () => (
               you love my works. Thank you!
             </p>
           </Grid.Col>
-          <Grid.Col columns={7} center>
+          <Grid.Col columns={7} center className="girl">
             <img src={girl} style={{ width: '100%', maxWidth: 450 }} />
           </Grid.Col>
         </Grid>
