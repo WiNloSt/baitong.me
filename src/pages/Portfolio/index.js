@@ -7,7 +7,7 @@ import { FlexContainer } from '../../components/FlexContainer'
 import { Modal } from '../../components/Modal'
 import { Toggle } from 'react-powerplug'
 import { canUseDOM } from '../../utils'
-import { withSiteData } from 'react-static';
+import { withSiteData } from 'react-static'
 
 const preloadImage = imageSrc => {
   const image = new window.Image()

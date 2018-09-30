@@ -30,7 +30,7 @@ const alignSelfMap = {
   bottom: 'flex-end'
 }
 
-const Col = styled(({ maxColumns, center, verticalAlign, ...props }) => <div {...props} />)`
+const Col = styled.div`
   display: inline-block;
   vertical-align: ${({ verticalAlign = 'top' }) => verticalAlign};
   align-self: ${props => alignSelfMap[props.verticalAlign] || 'flex-start'};
