@@ -13,6 +13,7 @@ import graduate from './assets/icons/graduate@2x.png'
 import pencil from './assets/icons/pencil@2x.png'
 import web from './assets/icons/web@2x.png'
 import { Icon } from '../../components/Icon'
+import { Link } from 'react-static'
 
 const Grid = styled(UnstyledGrid)`
   @media only screen and (max-width: 479px) {
@@ -49,7 +50,7 @@ const Grid = styled(UnstyledGrid)`
 
       + ${UnstyledGrid.Col} {
         z-index: 1;
-        
+
         @media only screen and (min-width: 480px) {
           margin-right: 3rem;
         }
@@ -174,6 +175,38 @@ const Header = ({ title }) => (
   </Grid>
 )
 
+const Button = styled(Link)`
+  display: inline-block;
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 10px 18px;
+  line-height: 1;
+  border-radius: 5px;
+  border: solid 3px #d5d5d5;
+  outline: none;
+  transition: all 0.125s;
+  font-size: 14px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    background-color: #d5d5d5;
+    color: white;
+  }
+
+  &:active {
+    background-color: #c4c4c4;
+    border-color: #c4c4c4;
+    color: white;
+  }
+`
+
 const AboutMeIcon = styled.i`
   display: block;
   width: 48px;
@@ -283,6 +316,7 @@ export default () => (
               arts to pratice and improve my skills. I hope my artworks will inspire you and hope
               you love my works. Thank you!
             </p>
+            <Button to="/portfolio">See More</Button>
           </Grid.Col>
           <Grid.Col columns={7} center className="girl">
             <img src={girl} style={{ width: '100%', maxWidth: 450 }} />
