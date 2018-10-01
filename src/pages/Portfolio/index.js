@@ -18,6 +18,13 @@ const NavBackground = styled.div`
   height: 120px;
   background-color: #ff88a5;
 `
+
+const Thumbnail = styled.div`
+  img {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+`
 class Portfolio extends React.Component {
   static propTypes = {
     portfolio: PropTypes.array
@@ -45,7 +52,7 @@ class Portfolio extends React.Component {
                 {({ on, set }) => (
                   <React.Fragment>
                     {this.props.portfolio.map((item, index) => (
-                      <div
+                      <Thumbnail
                         key={index}
                         onClick={() => {
                           set(true)
@@ -57,7 +64,7 @@ class Portfolio extends React.Component {
                         <a>
                           <img src={item.thumbnail} alt={item.altText} width="100%" />
                         </a>
-                      </div>
+                      </Thumbnail>
                     ))}
                     <Modal full size="large" open={on} onClose={() => set(false)}>
                       <img src={this.state.image} alt={this.state.altText} width="100%" />
