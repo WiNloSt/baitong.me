@@ -313,7 +313,7 @@ export default () => (
             <h3 className="decorated">LET'S SEE MY WORK</h3>
             <p className="indent">
               I create my arts from many inspirations with dedication. I made different styles of
-              arts to pratice and improve my skills. I hope my artworks will inspire you and hope
+              arts to practice and improve my skills. I hope my artworks will inspire you and hope
               you love my works. Thank you!
             </p>
             <Button to="/portfolio">See More</Button>
@@ -400,8 +400,8 @@ export default () => (
               2015 - 2018 at Teapot Studio
             </h3>
             <p>
-              - Manage project from conception through deployment, and act as bothd a customer
-              partnet and an internal team leader.
+              - Manage project from conception through deployment, and act as both a customer
+              partner and an internal team leader.
               <br />
               <br />- Manage daily project assignments, provide team direction and lead team meeting
               to complete projects with clear objectives, agendas and outcomes.
