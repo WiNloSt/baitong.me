@@ -5,5 +5,8 @@
   "license": "MIT",
   "peerDependencies": {
     "gatsby": "^2.6.0"
+  },
+  "dependencies": {
+    "react-helmet": "^5.2.1"
   }
 }

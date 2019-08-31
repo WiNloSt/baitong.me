@@ -5,7 +5,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace example build"
+    "start": "yarn develop",
+    "develop": "yarn workspace site develop",
+    "build": "yarn workspace site build"
   },
   "workspaces": [
     "gatsby-theme-baitong",
