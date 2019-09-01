@@ -4,13 +4,18 @@ import css from '@styled-system/css'
 
 export function RainbowButton({ children, className, ...props }) {
   return (
-    <Button className={className}>
+    <Button
+      className={className}
+      target="_blank"
+      href="https://drive.google.com/file/d/1gXr6Lh7H0ik7NEHu_zae-oPaX6Q8efas/view?usp=sharing">
       <RainbowText>{children}</RainbowText>
     </Button>
   )
 }
 
-const Button = styled.button`
+const Button = styled.a`
+  display: inline-block;
+  text-decoration: none;
   outline: none;
   position: relative;
   background-color: white;
@@ -20,6 +25,10 @@ const Button = styled.button`
 
   &:hover {
     background-color: #bea7de;
+  }
+
+  &:active {
+    filter: brightness(90%);
   }
 
   @supports (background-clip: padding-box) {
