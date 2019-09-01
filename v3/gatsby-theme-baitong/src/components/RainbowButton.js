@@ -10,10 +10,10 @@ export function RainbowButton({ children, className, ...props }) {
   )
 }
 
-const Button = styled('button')`
+const Button = styled.button`
   position: relative;
   background: white;
-  border: 3px solid black;
+  border: 3px solid #bea7de;
   border-radius: 2em;
   @supports (background-clip: padding-box) {
     border-color: transparent;
@@ -41,7 +41,7 @@ const RainbowText = styled.span`
   ${css({
     fontSize: 0
   })}
-  color: black;
+  color: #bea7de;
   font-weight: bold;
   @supports (-webkit-background-clip: text) and (-webkit-text-fill-color: transparent) {
     background: linear-gradient(to right, #bea7de 0%, #88d2d1);
