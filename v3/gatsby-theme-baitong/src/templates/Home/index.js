@@ -1,6 +1,6 @@
 /* @jsx jsx */
 import React from 'react'
-import { Layout, Main, Styled, jsx } from 'theme-ui'
+import { Layout, Main, Container, Styled, jsx } from 'theme-ui'
 import './style.css'
 import SEO from '../../components/SEO'
 import { RainbowButton } from '../../components/RainbowButton'
@@ -13,21 +13,40 @@ function Home() {
   return (
     <Layout>
       <Main>
-        <Flex sx={{ marginTop: 130 }}>
-          <div sx={{ marginTop: 100 }}>
-            <SEO title="Home" />
-            <Styled.h2 sx={{ margin: 0 }}>Baitong</Styled.h2>
-            <Styled.p
+        <div
+          sx={{
+            position: 'relative',
+            zIndex: 0,
+            backgroundColor: 'lessWhite'
+          }}>
+          <Container>
+            <Flex
               sx={{
-                fontSize: 1,
-                lineHeight: 'heading'
+                marginTop: 130,
+                justifyContent: 'center',
+                flexWrap: ['wrap-reverse', 'initial']
               }}>
-              I am an UX/UI designer
-            </Styled.p>
-            <RainbowButton sx={{ marginTop: 4 }}>Resume</RainbowButton>
-          </div>
-          <img sx={{ marginLeft: 'auto' }} src={profilePicture} />
-        </Flex>
+              <div sx={{ marginTop: [4, 100], marginBottom: 5, textAlign: ['center', 'initial'] }}>
+                <SEO title="Home" />
+                <Styled.h2 sx={{ margin: 0 }}>Baitong</Styled.h2>
+                <Styled.p
+                  sx={{
+                    fontSize: 1,
+                    lineHeight: 'heading'
+                  }}>
+                  I am an UX/UI designer
+                </Styled.p>
+                <RainbowButton sx={{ marginTop: [3, 4] }}>Resume</RainbowButton>
+              </div>
+              <img
+                alt="Baitong cartoon"
+                sx={{ marginLeft: ['initial', 'auto'], maxWidth: '100%' }}
+                src={profilePicture}
+              />
+            </Flex>
+          </Container>
+        </div>
+        <Container>wow</Container>
       </Main>
     </Layout>
   )

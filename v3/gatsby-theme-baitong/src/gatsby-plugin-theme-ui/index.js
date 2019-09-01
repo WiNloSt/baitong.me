@@ -1,16 +1,18 @@
 export default {
-  space: [0, 4, 8, 16, 32],
+  space: [0, 4, 8, 16, 32, 64],
   fonts: {
     body: 'Nunito, sans-serif'
   },
   fontSizes: [14, 30, 60],
+  breakpoints: ['768px'],
   lineHeights: {
     body: 1.4,
     heading: 1.1
   },
   colors: {
     gray: '#333',
-    background: '#fff'
+    background: '#fff',
+    lessWhite: '#FCFCFC'
   },
   sizes: {
     default: '90vw',
@@ -23,10 +25,8 @@ export default {
       fontSize: 0,
       lineHeight: 'body'
     },
-    Main: {
-      margin: '0 auto',
-      maxWidth: 'max',
-      width: 'default'
+    Container: {
+      maxWidth: 'max'
     },
     h2: {
       fontSize: 2,
