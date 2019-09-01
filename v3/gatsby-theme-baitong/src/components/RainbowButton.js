@@ -11,13 +11,24 @@ export function RainbowButton({ children, className, ...props }) {
 }
 
 const Button = styled.button`
+  outline: none;
   position: relative;
-  background: white;
+  background-color: white;
   border: 3px solid #bea7de;
   border-radius: 2em;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #bea7de;
+  }
+
   @supports (background-clip: padding-box) {
     border-color: transparent;
     background-clip: padding-box;
+
+    &:hover {
+      background-color: transparent;
+    }
 
     &:before {
       content: '';
@@ -29,7 +40,7 @@ const Button = styled.button`
       left: 0;
       margin: -3px;
       border-radius: inherit;
-      background: linear-gradient(to right, #bea7de 0%, #88d2d1);
+      background-image: linear-gradient(to right, #bea7de 0%, #88d2d1);
     }
   }
   ${css({
@@ -43,9 +54,18 @@ const RainbowText = styled.span`
   })}
   color: #bea7de;
   font-weight: bold;
+
+  ${Button}:hover & {
+    color: white;
+  }
+
   @supports (-webkit-background-clip: text) and (-webkit-text-fill-color: transparent) {
-    background: linear-gradient(to right, #bea7de 0%, #88d2d1);
+    background-image: linear-gradient(to right, #bea7de 0%, #88d2d1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    ${Button}:hover & {
+      -webkit-text-fill-color: white;
+    }
   }
 `
