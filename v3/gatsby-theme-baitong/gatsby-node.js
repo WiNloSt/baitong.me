@@ -3,6 +3,6 @@ exports.createPages = ({ actions }) => {
 
   createPage({
     path: '/',
-    component: require.resolve('./templates/Home.js')
+    component: require.resolve('./src/templates/Home')
   })
 }
