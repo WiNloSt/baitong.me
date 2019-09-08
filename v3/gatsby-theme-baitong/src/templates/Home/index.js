@@ -6,6 +6,7 @@ import SEO from '../../components/SEO'
 import { RainbowButton } from '../../components/RainbowButton'
 import profilePicture from './assets/profilePicture.svg'
 import { Flex } from '../../layouts/Flex'
+import { Gallery } from '../../components/Gallery'
 
 export default Home
 
@@ -46,7 +47,9 @@ function Home() {
             </Flex>
           </Container>
         </div>
-        <Container>wow</Container>
+        <Container>
+          <Gallery />
+        </Container>
       </Main>
     </Layout>
   )

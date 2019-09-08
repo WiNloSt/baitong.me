@@ -10,7 +10,7 @@
     "build": "yarn workspace site build"
   },
   "workspaces": [
-    "gatsby-theme-baitong",
-    "site"
+    "site",
+    "gatsby-theme-baitong"
   ]
 }

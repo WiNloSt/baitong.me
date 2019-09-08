@@ -26,7 +26,8 @@ export default {
       lineHeight: 'body'
     },
     Container: {
-      maxWidth: 'max'
+      maxWidth: 'max',
+      padding: 0
     },
     h2: {
       fontSize: 2,

@@ -4,3 +4,6 @@ node_modules
 
 # VS Code config
 .vscode/
+
+# .env files
+.env*
