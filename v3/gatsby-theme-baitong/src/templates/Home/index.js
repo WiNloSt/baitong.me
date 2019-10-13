@@ -54,7 +54,6 @@ function Home() {
           </Container>
         </Main>
       </Layout>
-      <div id="modal-root"></div>
     </>
   )
 }

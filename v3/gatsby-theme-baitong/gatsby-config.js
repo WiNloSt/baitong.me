@@ -30,8 +30,14 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: 'ma7q43kx1i9j',
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: `preview.contentful.com`
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
+    },
+    {
+      resolve: `gatsby-plugin-portal`,
+      options: {
+        key: 'modal-root',
+        id: 'modal-root'
       }
     }
   ]

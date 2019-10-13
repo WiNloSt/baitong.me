@@ -1,21 +1,30 @@
 import ReactDOM from 'react-dom'
-import { useEffect } from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
+import { CSSTransition } from 'react-transition-group'
+
+const TRANSITION_TIMEOUT = 200
 
 export function Modal({ open, closeModal }) {
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = null
-    }
-  }, [open])
+  return ReactDOM.createPortal(
+    <CSSTransition
+      in={open}
+      classNames="modal"
+      timeout={TRANSITION_TIMEOUT}
+      unmountOnExit
+      onEntering={() => {
+        document.body.style.overflow = 'hidden'
+      }}
+      onExited={() => {
+        document.body.style.overflow = null
+      }}>
+      <InnerModal closeModal={closeModal} />
+    </CSSTransition>,
+    document.querySelector('#modal-root')
+  )
+}
 
-  if (!open) {
-    return null
-  }
-
+function InnerModal({ closeModal }) {
   function handleOverlayClick() {
     closeModal()
   }
@@ -28,13 +37,12 @@ export function Modal({ open, closeModal }) {
     e.stopPropagation()
   }
 
-  return ReactDOM.createPortal(
+  return (
     <Overlay onClick={handleOverlayClick}>
       <ModalContentLayout>
         <ModalContent onClick={handleModalContentClick}>Modal content</ModalContent>
       </ModalContentLayout>
-    </Overlay>,
-    document.querySelector('#modal-root')
+    </Overlay>
   )
 }
 
@@ -46,12 +54,30 @@ const Overlay = styled.div`
   right: 0;
   background: rgba(0, 0, 0, 0.6);
   overflow: auto;
+  transition: opacity ${TRANSITION_TIMEOUT}ms;
 
   &::before {
     content: '';
     height: 100%;
     display: inline-block;
     vertical-align: middle;
+  }
+
+  /* transition */
+  &.modal-enter {
+    opacity: 0;
+  }
+
+  &.modal-enter-active {
+    opacity: 1;
+  }
+
+  &.modal-exit {
+    opacity: 1;
+  }
+
+  &.modal-exit-active {
+    opacity: 0;
   }
 `
 
