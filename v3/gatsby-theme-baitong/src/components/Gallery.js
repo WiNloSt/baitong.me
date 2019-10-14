@@ -13,7 +13,12 @@ export function Gallery() {
           altText
           title
           thumbnail {
-            fluid(maxWidth: 300) {
+            fluid(maxWidth: 250) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+          image {
+            fluid(maxWidth: 1200) {
               ...GatsbyContentfulFluid_withWebp
             }
           }
@@ -23,6 +28,7 @@ export function Gallery() {
   `)
 
   const [open, setOpen] = useState(false)
+  const [selectedItemIndex, setSelectedItemIndex] = useState(-1)
 
   function openModal() {
     setOpen(true)
@@ -38,10 +44,18 @@ export function Gallery() {
 
   return (
     <Grid>
-      <Modal open={open} closeModal={closeModal} />
-      {allContentfulPortfolio.nodes.map(node => {
+      <Modal open={open} closeModal={closeModal}>
+        {selectedItemIndex > -1 && (
+          <Img fluid={allContentfulPortfolio.nodes[selectedItemIndex].image.fluid} />
+        )}
+      </Modal>
+      {allContentfulPortfolio.nodes.map((node, index) => {
         return (
-          <Grid.Item onClick={handleClick}>
+          <Grid.Item
+            onClick={() => {
+              handleClick()
+              setSelectedItemIndex(index)
+            }}>
             <Img fluid={node.thumbnail.fluid} />
           </Grid.Item>
         )

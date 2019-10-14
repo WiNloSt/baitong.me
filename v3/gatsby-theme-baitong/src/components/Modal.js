@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group'
 
 const TRANSITION_TIMEOUT = 200
 
-export function Modal({ open, closeModal }) {
+export function Modal({ open, closeModal, children }) {
   return ReactDOM.createPortal(
     <CSSTransition
       in={open}
@@ -18,13 +18,13 @@ export function Modal({ open, closeModal }) {
       onExited={() => {
         document.body.style.overflow = null
       }}>
-      <InnerModal closeModal={closeModal} />
+      <InnerModal closeModal={closeModal} children={children} />
     </CSSTransition>,
     document.querySelector('#modal-root')
   )
 }
 
-function InnerModal({ closeModal }) {
+function InnerModal({ closeModal, children }) {
   function handleOverlayClick() {
     closeModal()
   }
@@ -40,7 +40,7 @@ function InnerModal({ closeModal }) {
   return (
     <Overlay onClick={handleOverlayClick}>
       <ModalContentLayout>
-        <ModalContent onClick={handleModalContentClick}>Modal content</ModalContent>
+        <ModalContent onClick={handleModalContentClick}>{children}</ModalContent>
       </ModalContentLayout>
     </Overlay>
   )
@@ -97,10 +97,12 @@ const ModalContentLayout = styled.div`
 `
 
 const ModalContent = styled.div`
-  max-width: 800px;
+  max-width: 1200px;
   min-height: 400px;
   border-radius: 4px;
   width: 100%;
   height: 100%;
   background-color: #fff;
+  /* Add this so that border-radius will still be showing */
+  overflow: hidden;
 `
