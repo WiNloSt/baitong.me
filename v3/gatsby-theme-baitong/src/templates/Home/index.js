@@ -1,12 +1,14 @@
 /* @jsx jsx */
 import React from 'react'
-import { Layout, Main, Container as ThemeUiContainer, Styled, jsx } from 'theme-ui'
+import { Layout, Main, Styled, jsx } from 'theme-ui'
 import './style.css'
 import SEO from '../../components/SEO'
 import { RainbowButton } from '../../components/RainbowButton'
 import profilePicture from './assets/profilePicture.svg'
 import { Flex } from '../../layouts/Flex'
 import { Gallery } from '../../components/Gallery'
+import { Footer } from '../../components/Footer'
+import { Container } from '../../components/Container'
 
 export default Home
 
@@ -56,30 +58,12 @@ function Home() {
               </Flex>
             </Container>
           </div>
-          <Container sx={{ marginTop: [4, 5] }}>
+          <Container sx={{ marginTop: [4, 5], marginBottom: [4, 5] }}>
             <Gallery />
           </Container>
         </Main>
+        <Footer Container={Container} />
       </Layout>
     </>
-  )
-}
-
-/**
- *
- * @param {object} props
- * @param {import('react').ReactElement} props.children
- * @param {string=} props.className
- */
-function Container({ children, className }) {
-  return (
-    <div
-      sx={{
-        marginLeft: [30, 60],
-        marginRight: [30, 60]
-      }}
-      className={className}>
-      <ThemeUiContainer>{children}</ThemeUiContainer>
-    </div>
   )
 }
