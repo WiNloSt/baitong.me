@@ -1,4 +1,6 @@
 import ReactDOM from 'react-dom'
+import { useEffect } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 import { CSSTransition } from 'react-transition-group'
@@ -10,6 +12,8 @@ export function Modal({ open, closeModal, children }) {
   if (typeof document === 'undefined') {
     return null
   }
+
+  useCloseModalOnEscapeKey(closeModal)
 
   return ReactDOM.createPortal(
     <CSSTransition
@@ -108,3 +112,19 @@ const ModalContent = styled.div`
   /* Add this so that border-radius will still be showing */
   overflow: hidden;
 `
+
+function useCloseModalOnEscapeKey(closeModal) {
+  useEffect(() => {
+    function closeOnEscape(e) {
+      if (e.key === 'Escape') {
+        closeModal()
+      }
+    }
+
+    document.addEventListener('keydown', closeOnEscape)
+
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape)
+    }
+  })
+}

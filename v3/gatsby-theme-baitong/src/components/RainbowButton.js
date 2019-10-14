@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 
-export function RainbowButton({ children, className, ...props }) {
+export function RainbowButton({ children, className }) {
   return (
     <Button
       className={className}

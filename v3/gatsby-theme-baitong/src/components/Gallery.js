@@ -29,7 +29,6 @@ export function Gallery() {
 
   const [open, setOpen] = useState(false)
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1)
-  useCloseModalOnEscapeKey(closeModal)
 
   function openModal() {
     setOpen(true)
@@ -64,20 +63,4 @@ export function Gallery() {
       })}
     </Grid>
   )
-}
-
-function useCloseModalOnEscapeKey(closeModal) {
-  useEffect(() => {
-    function closeOnEscape(e) {
-      if (e.key === 'Escape') {
-        closeModal()
-      }
-    }
-
-    document.addEventListener('keydown', closeOnEscape)
-
-    return () => {
-      document.removeEventListener('keydown', closeOnEscape)
-    }
-  })
 }

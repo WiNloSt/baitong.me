@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "checkJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}
