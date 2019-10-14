@@ -1,6 +1,6 @@
 /* @jsx jsx */
 import React from 'react'
-import { Layout, Main, Container, Styled, jsx } from 'theme-ui'
+import { Layout, Main, Container as ThemeUiContainer, Styled, jsx } from 'theme-ui'
 import './style.css'
 import SEO from '../../components/SEO'
 import { RainbowButton } from '../../components/RainbowButton'
@@ -24,7 +24,7 @@ function Home() {
             <Container>
               <Flex
                 sx={{
-                  marginTop: 130,
+                  paddingTop: [50, 130],
                   justifyContent: 'center',
                   flexWrap: ['wrap-reverse', 'initial']
                 }}>
@@ -55,5 +55,17 @@ function Home() {
         </Main>
       </Layout>
     </>
+  )
+}
+
+function Container({ children }) {
+  return (
+    <div
+      sx={{
+        marginLeft: [30, 60],
+        marginRight: [30, 60]
+      }}>
+      <ThemeUiContainer>{children}</ThemeUiContainer>
+    </div>
   )
 }
