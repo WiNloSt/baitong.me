@@ -136,7 +136,6 @@ const ModalContentLayout = styled.div`
 `
 
 const ModalContent = styled.div`
-  min-height: 400px;
   border-radius: 4px;
   width: 100%;
   height: 100%;
