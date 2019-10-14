@@ -6,6 +6,11 @@ import { CSSTransition } from 'react-transition-group'
 const TRANSITION_TIMEOUT = 200
 
 export function Modal({ open, closeModal, children }) {
+  // SSR support
+  if (typeof document === 'undefined') {
+    return null
+  }
+
   return ReactDOM.createPortal(
     <CSSTransition
       in={open}
