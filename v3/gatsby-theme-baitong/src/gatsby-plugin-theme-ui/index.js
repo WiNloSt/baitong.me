@@ -12,7 +12,7 @@ export default {
   colors: {
     gray: '#333',
     background: '#fff',
-    lessWhite: '#FCFCFC'
+    lessWhite: '#F4F4F4'
   },
   sizes: {
     default: '90vw',

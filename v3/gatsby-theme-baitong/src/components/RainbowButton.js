@@ -18,7 +18,6 @@ const Button = styled.a`
   text-decoration: none;
   outline: none;
   position: relative;
-  background-color: white;
   border: 3px solid #bea7de;
   border-radius: 2em;
   transition: all 0.2s;
@@ -52,8 +51,10 @@ const Button = styled.a`
       background-image: linear-gradient(to right, #bea7de 0%, #88d2d1);
     }
   }
+
   ${css({
-    padding: theme => `${theme.space[2]}px ${theme.space[4]}px`
+    padding: theme => `${theme.space[2]}px ${theme.space[4]}px`,
+    backgroundColor: 'lessWhite'
   })}
 `
 
