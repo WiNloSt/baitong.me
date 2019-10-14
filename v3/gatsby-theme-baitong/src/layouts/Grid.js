@@ -12,7 +12,7 @@ const Item = styled.div`
   min-width: 250px;
   /* end debug style */
   width: 100%;
-  flex: 1 1 0;
+  flex: 1 1 0px;
   transition: filter 0.15s;
   ${css({
     margin: 3

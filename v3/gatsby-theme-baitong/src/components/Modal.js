@@ -21,7 +21,7 @@ export function Modal({ open, closeModal, children }) {
         document.body.style.overflow = 'hidden'
       }}
       onExited={() => {
-        document.body.style.overflow = null
+        document.body.style.overflow = ''
       }}>
       <InnerModal closeModal={closeModal} children={children} />
     </CSSTransition>,

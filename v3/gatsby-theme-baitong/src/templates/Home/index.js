@@ -27,15 +27,15 @@ function Home() {
                 sx={{
                   paddingTop: [5, 6],
                   paddingBottom: [4, 5],
-                  justifyContent: 'center',
-                  flexWrap: ['wrap-reverse', 'initial']
+                  justifyContent: ['center', 'flex-start'],
+                  flexWrap: ['wrap-reverse', 'nowrap']
                 }}>
                 <div
                   sx={{
                     alignSelf: 'flex-end',
                     marginTop: 3,
                     marginBottom: [0, 5],
-                    textAlign: ['center', 'initial']
+                    textAlign: ['center', 'left']
                   }}>
                   <Styled.h2 sx={{ margin: 0 }}>Baitong</Styled.h2>
                   <Styled.p
@@ -49,7 +49,7 @@ function Home() {
                 </div>
                 <img
                   alt="Baitong cartoon"
-                  sx={{ marginLeft: ['initial', 'auto'], maxWidth: '100%' }}
+                  sx={{ marginLeft: [null, 'auto'], maxWidth: '100%' }}
                   src={profilePicture}
                 />
               </Flex>
