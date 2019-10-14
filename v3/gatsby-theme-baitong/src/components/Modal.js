@@ -1,9 +1,10 @@
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { useEffect } from 'react'
-import React from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 import { CSSTransition } from 'react-transition-group'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const TRANSITION_TIMEOUT = 200
 
@@ -47,8 +48,13 @@ function InnerModal({ closeModal, children }) {
   }
 
   return (
-    <Overlay onClick={handleOverlayClick}>
+    <Overlay
+      onClick={handleOverlayClick}
+      style={{
+        textAlign: 'center'
+      }}>
       <ModalContentLayout>
+        <CloseIcon style={{ float: 'right' }} />
         <ModalContent onClick={handleModalContentClick}>{children}</ModalContent>
       </ModalContentLayout>
     </Overlay>
@@ -90,12 +96,38 @@ const Overlay = styled.div`
   }
 `
 
+const CloseIcon = styled(FontAwesomeIcon)`
+  z-index: 1;
+  position: sticky;
+  color: white;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+
+  ${css({
+    top: 2,
+    marginBottom: 2
+  })}
+
+  @media screen and (min-width: 1230px) {
+    ${css({
+      marginBottom: 3,
+      transform: theme => `translateX(calc(100% + ${theme.space[3]}px))`
+    })}
+  }
+`
+
+CloseIcon.defaultProps = {
+  icon: faTimes,
+  size: '2x'
+}
+
 const ModalContentLayout = styled.div`
-  display: inline-flex;
   vertical-align: middle;
   width: 100%;
+  max-width: 1200px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
-  justify-content: center;
 
   ${css({
     padding: 3
@@ -103,7 +135,6 @@ const ModalContentLayout = styled.div`
 `
 
 const ModalContent = styled.div`
-  max-width: 1200px;
   min-height: 400px;
   border-radius: 4px;
   width: 100%;
