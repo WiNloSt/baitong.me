@@ -10,7 +10,7 @@ export function Footer() {
     <FooterLayout>
       <Container>
         <FooterBody>
-          <span style={{ fontSize: 18 }}>Baitong.me</span>
+          <span style={{ fontSize: 14 }}>Baitong.me</span>
           <IconContainer>
             <IconLink
               to="https://www.facebook.com/Natthapattong-174414203275588/"
@@ -36,7 +36,7 @@ const FooterBody = styled.div`
   align-items: center;
 
   ${css({
-    lineHeight: 3
+    lineHeight: [3, 4]
   })}
 `
 
