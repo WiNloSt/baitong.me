@@ -1,0 +1,16 @@
+{
+  "name": "gatsby-starter-theme-workspace",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn develop",
+    "develop": "yarn workspace site develop -H 0.0.0.0",
+    "build": "yarn workspace site build"
+  },
+  "workspaces": [
+    "site",
+    "gatsby-theme-baitong"
+  ]
+}
