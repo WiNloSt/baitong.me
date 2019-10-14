@@ -32,9 +32,12 @@ const FooterLayout = styled.div`
 `
 
 const FooterBody = styled.div`
-  height: 100px;
   display: flex;
   align-items: center;
+
+  ${css({
+    lineHeight: 3
+  })}
 `
 
 const IconContainer = styled.div`
@@ -42,7 +45,7 @@ const IconContainer = styled.div`
 
   & > * + * {
     ${css({
-      marginLeft: 3
+      marginLeft: 2
     })}
   }
 `

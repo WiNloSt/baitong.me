@@ -18,6 +18,8 @@ export function IconLink({ to, name }) {
   )
 }
 
+const iconSize = 32
+
 /**
  *
  * @param {object} props
@@ -30,9 +32,9 @@ function Icon({ name }) {
         icon={faDribbble}
         style={{
           color: '#414042',
-          verticalAlign: 'middle'
+          verticalAlign: 'middle',
+          fontSize: iconSize
         }}
-        size="3x"
       />
     )
   }
@@ -43,7 +45,8 @@ function Icon({ name }) {
         icon={faFacebook}
         style={{
           color: '#414042',
-          verticalAlign: 'middle'
+          verticalAlign: 'middle',
+          fontSize: iconSize
         }}
         size="3x"
       />
@@ -54,14 +57,15 @@ function Icon({ name }) {
     return (
       <Circle
         style={{
-          verticalAlign: 'middle'
+          verticalAlign: 'middle',
+          lineHeight: 1.6
         }}>
         <FontAwesomeIcon
           icon={faBehance}
           style={{
             color: '#414042',
-            fontSize: 24,
-            transform: 'translate(5px, 6px)'
+            fontSize: 20,
+            transform: 'translate(3px, 4px)'
           }}
         />
       </Circle>
@@ -72,11 +76,12 @@ function Icon({ name }) {
 }
 
 const Circle = styled.div`
+  outline: none;
   display: inline-block;
   border-radius: 50%;
-  height: 42px;
-  width: 42px;
-  border-width: 3px;
+  height: ${iconSize}px;
+  width: ${iconSize}px;
+  border-width: 2px;
   border-style: solid;
   box-sizing: border-box;
 
