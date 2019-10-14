@@ -8,10 +8,10 @@ export const Grid = styled(Flex)`
 `
 
 const Item = styled.div`
-  width: 100%;
-  height: 100px;
+  /* debug style */
   min-width: 250px;
-  background: #aaa;
+  /* end debug style */
+  width: 100%;
   flex: 1 1 0;
   transition: filter 0.15s;
   ${css({
