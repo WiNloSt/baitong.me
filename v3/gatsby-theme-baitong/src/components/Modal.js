@@ -94,10 +94,7 @@ const ModalContentLayout = styled.div`
   justify-content: center;
 
   ${css({
-    paddingTop: 3,
-    paddingBottom: 3,
-    paddingLeft: 4,
-    paddingRight: 4
+    padding: 3
   })}
 `
 

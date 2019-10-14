@@ -52,6 +52,7 @@ export function Gallery() {
       {allContentfulPortfolio.nodes.map((node, index) => {
         return (
           <Grid.Item
+            key={index}
             onClick={() => {
               handleClick()
               setSelectedItemIndex(index)
