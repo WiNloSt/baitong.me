@@ -12,6 +12,7 @@ export default Home
 
 function Home() {
   return (
+    // @ts-ignore
     <>
       <SEO title="Home" />
       <Layout>
@@ -64,6 +65,12 @@ function Home() {
   )
 }
 
+/**
+ *
+ * @param {object} props
+ * @param {import('react').ReactElement} props.children
+ * @param {string=} props.className
+ */
 function Container({ children, className }) {
   return (
     <div

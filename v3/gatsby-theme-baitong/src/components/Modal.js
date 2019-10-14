@@ -100,6 +100,7 @@ const CloseIcon = styled(FontAwesomeIcon)`
   z-index: 1;
   position: sticky;
   color: white;
+  cursor: pointer;
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 
   ${css({

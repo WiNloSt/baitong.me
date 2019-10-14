@@ -8,12 +8,12 @@ export const Grid = styled(Flex)`
 `
 
 const Item = styled.div`
-  /* debug style */
   min-width: 250px;
-  /* end debug style */
   width: 100%;
   flex: 1 1 0px;
   transition: filter 0.15s;
+  cursor: pointer;
+
   ${css({
     margin: 3
   })};

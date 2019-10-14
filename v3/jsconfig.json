@@ -9,5 +9,6 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true
   },
-  "exclude": ["node_modules", "**/node_modules/*"]
+  "exclude": ["node_modules", "**/node_modules/*"],
+  "rules": []
 }
