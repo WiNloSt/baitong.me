@@ -13,6 +13,7 @@ export default Home
 function Home() {
   return (
     <>
+      <SEO title="Home" />
       <Layout>
         <Main>
           <div
@@ -24,13 +25,17 @@ function Home() {
             <Container>
               <Flex
                 sx={{
-                  paddingTop: [50, 130],
+                  paddingTop: [5, 6],
+                  paddingBottom: 5,
                   justifyContent: 'center',
                   flexWrap: ['wrap-reverse', 'initial']
                 }}>
                 <div
-                  sx={{ marginTop: [4, 100], marginBottom: 5, textAlign: ['center', 'initial'] }}>
-                  <SEO title="Home" />
+                  sx={{
+                    alignSelf: 'flex-end',
+                    marginBottom: [0, 5],
+                    textAlign: ['center', 'initial']
+                  }}>
                   <Styled.h2 sx={{ margin: 0 }}>Baitong</Styled.h2>
                   <Styled.p
                     sx={{
@@ -49,7 +54,7 @@ function Home() {
               </Flex>
             </Container>
           </div>
-          <Container>
+          <Container sx={{ marginTop: [4, 5] }}>
             <Gallery />
           </Container>
         </Main>
@@ -58,13 +63,14 @@ function Home() {
   )
 }
 
-function Container({ children }) {
+function Container({ children, className }) {
   return (
     <div
       sx={{
         marginLeft: [30, 60],
         marginRight: [30, 60]
-      }}>
+      }}
+      className={className}>
       <ThemeUiContainer>{children}</ThemeUiContainer>
     </div>
   )

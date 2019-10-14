@@ -1,5 +1,5 @@
 export default {
-  space: [0, 4, 8, 16, 32, 64],
+  space: [0, 4, 8, 16, 32, 64, 128],
   fonts: {
     body: 'Nunito, sans-serif'
   },
