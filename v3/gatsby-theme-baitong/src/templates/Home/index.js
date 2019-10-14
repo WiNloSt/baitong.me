@@ -26,13 +26,14 @@ function Home() {
               <Flex
                 sx={{
                   paddingTop: [5, 6],
-                  paddingBottom: 5,
+                  paddingBottom: [4, 5],
                   justifyContent: 'center',
                   flexWrap: ['wrap-reverse', 'initial']
                 }}>
                 <div
                   sx={{
                     alignSelf: 'flex-end',
+                    marginTop: 3,
                     marginBottom: [0, 5],
                     textAlign: ['center', 'initial']
                   }}>
