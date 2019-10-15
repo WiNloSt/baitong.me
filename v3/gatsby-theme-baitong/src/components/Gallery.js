@@ -13,7 +13,7 @@ export function Gallery() {
           altText
           title
           thumbnail {
-            fluid(maxWidth: 250) {
+            fluid(maxWidth: 600) {
               ...GatsbyContentfulFluid_withWebp
             }
           }
