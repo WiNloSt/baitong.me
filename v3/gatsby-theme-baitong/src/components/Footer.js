@@ -41,14 +41,19 @@ const Divider = styled.div`
 const FooterBody = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 
   ${css({
-    lineHeight: [6, 8]
+    flexDirection: ['column', 'row'],
+    height: [96, 128]
   })}
 `
 
 const IconContainer = styled.div`
-  margin-left: auto;
+  ${css({
+    marginTop: [2, 0],
+    marginLeft: [0, 'auto']
+  })}
 
   & > * + * {
     ${css({
