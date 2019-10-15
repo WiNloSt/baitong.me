@@ -43,8 +43,8 @@ function Home() {
                   <Styled.h2 sx={{ margin: 0 }}>Baitong</Styled.h2>
                   <Styled.p
                     sx={{
-                      fontSize: 1,
-                      lineHeight: 'heading'
+                      fontSize: [0, 1],
+                      marginTop: 1
                     }}>
                     I am an UX/UI designer
                   </Styled.p>
@@ -58,7 +58,7 @@ function Home() {
               </Flex>
             </Container>
           </div>
-          <Container sx={{ marginTop: [4, 5], marginBottom: [4, 5] }}>
+          <Container sx={{ marginTop: [4, 5], marginBottom: [4, 112] }}>
             <Gallery />
           </Container>
         </Main>

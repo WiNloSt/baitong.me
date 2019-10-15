@@ -14,7 +14,9 @@ export function Footer() {
       <Divider />
       <Container>
         <FooterBody>
-          <span sx={{ display: ['block', 'inline'], fontSize: [12, 14] }}>Baitong.me</span>
+          <span sx={{ display: ['block', 'inline'], fontSize: [12, 14], marginTop: [3, 0] }}>
+            Baitong.me
+          </span>
           <IconContainer>
             <IconLink
               to="https://www.facebook.com/Natthapattong-174414203275588/"
@@ -41,17 +43,17 @@ const Divider = styled.div`
 const FooterBody = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   ${css({
     flexDirection: ['column', 'row'],
-    height: [96, 128]
+    height: [128, 128]
   })}
 `
 
 const IconContainer = styled.div`
   ${css({
-    marginTop: [2, 0],
+    marginTop: [12, 0],
     marginLeft: [0, 'auto']
   })}
 

@@ -30,7 +30,7 @@ export default {
       padding: 0
     },
     h2: {
-      fontSize: 2,
+      fontSize: [1, 2],
       fontWeight: 'bold',
       lineHeight: 'heading',
       margin: '1rem 0 0'
