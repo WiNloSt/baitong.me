@@ -1,16 +1,20 @@
+/* @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
+import { jsx } from 'theme-ui'
 
 import { Container } from './Container'
 import { IconLink } from './IconLink'
 
 export function Footer() {
   return (
-    <FooterLayout>
+    // @ts-ignore
+    <>
+      <Divider />
       <Container>
         <FooterBody>
-          <span style={{ fontSize: 14 }}>Baitong.me</span>
+          <span sx={{ display: ['block', 'inline'], fontSize: [12, 14] }}>Baitong.me</span>
           <IconContainer>
             <IconLink
               to="https://www.facebook.com/Natthapattong-174414203275588/"
@@ -21,13 +25,16 @@ export function Footer() {
           </IconContainer>
         </FooterBody>
       </Container>
-    </FooterLayout>
+    </>
   )
 }
 
-const FooterLayout = styled.div`
+const Divider = styled.div`
+  margin: 0 auto;
+  border-top: 1px solid #c4c4c4;
+
   ${css({
-    backgroundColor: 'lessWhite'
+    width: [200, 450]
   })}
 `
 
@@ -36,7 +43,7 @@ const FooterBody = styled.div`
   align-items: center;
 
   ${css({
-    lineHeight: [3, 4]
+    lineHeight: [6, 8]
   })}
 `
 

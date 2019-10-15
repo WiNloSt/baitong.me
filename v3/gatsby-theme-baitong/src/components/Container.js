@@ -5,7 +5,7 @@ import { Container as ThemeUiContainer, jsx } from 'theme-ui'
 /**
  *
  * @param {object} props
- * @param {import('react').ReactElement} props.children
+ * @param {any} props.children
  * @param {string=} props.className
  */
 export function Container({ children, className }) {
