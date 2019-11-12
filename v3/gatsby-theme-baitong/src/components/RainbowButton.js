@@ -7,7 +7,7 @@ export function RainbowButton({ children, className }) {
     <Button
       className={className}
       target="_blank"
-      href="https://drive.google.com/file/d/1gXr6Lh7H0ik7NEHu_zae-oPaX6Q8efas/view?usp=sharing">
+      href="https://drive.google.com/file/d/1E4XKAQeFtxBUhK5Pa0fSDcxZe1ONHcss/view?usp=sharing">
       <RainbowText>{children}</RainbowText>
     </Button>
   )
