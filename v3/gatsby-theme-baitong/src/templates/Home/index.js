@@ -23,7 +23,7 @@ function Home() {
             sx={{
               position: 'relative',
               zIndex: 0,
-              backgroundColor: 'lessWhite'
+              backgroundColor: 'lessWhite',
             }}>
             <Container>
               <Flex
@@ -31,22 +31,22 @@ function Home() {
                   paddingTop: [5, 6],
                   paddingBottom: [4, 5],
                   justifyContent: ['center', 'flex-start'],
-                  flexWrap: ['wrap-reverse', 'nowrap']
+                  flexWrap: ['wrap-reverse', 'nowrap'],
                 }}>
                 <div
                   sx={{
                     alignSelf: 'flex-end',
                     marginTop: 3,
                     marginBottom: [0, 5],
-                    textAlign: ['center', 'left']
+                    textAlign: ['center', 'left'],
                   }}>
                   <Styled.h2 sx={{ margin: 0 }}>Baitong</Styled.h2>
                   <Styled.p
                     sx={{
                       fontSize: [0, 1],
-                      marginTop: 1
+                      marginTop: 1,
                     }}>
-                    I am an UX/UI designer
+                    I am an UX designer
                   </Styled.p>
                   <RainbowButton sx={{ marginTop: [3, 4] }}>Resume</RainbowButton>
                 </div>
@@ -58,7 +58,7 @@ function Home() {
               </Flex>
             </Container>
           </div>
-          <Container sx={{ marginTop: [4, 5], marginBottom: [4, 112] }}>
+          <Container sx={{ marginTop: [4, 5], marginBottom: [4, 5] }}>
             <Gallery />
           </Container>
         </Main>
