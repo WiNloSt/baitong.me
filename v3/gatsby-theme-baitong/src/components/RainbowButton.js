@@ -2,12 +2,12 @@ import React from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 
-export function RainbowButton({ children, className }) {
+export function RainbowButton({ children, className, href }) {
   return (
     <Button
       className={className}
       target="_blank"
-      href="https://drive.google.com/file/d/1E4XKAQeFtxBUhK5Pa0fSDcxZe1ONHcss/view?usp=sharing">
+      href={href}>
       <RainbowText>{children}</RainbowText>
     </Button>
   )
