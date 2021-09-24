@@ -23,9 +23,8 @@
     "gatsby-plugin-sharp": "^2.2.19",
     "gatsby-plugin-theme-ui": "^0.2.38",
     "gatsby-plugin-webfonts": "^1.1.4",
-    "gatsby-source-contentful": "^2.1.30",
+    "gatsby-source-contentful": "2.0.71",
     "gatsby-transformer-sharp": "^2.2.13",
-    "ramda": "^0.27.1",
     "react-helmet": "^5.2.1",
     "react-transition-group": "^4.3.0",
     "theme-ui": "^0.2.38"

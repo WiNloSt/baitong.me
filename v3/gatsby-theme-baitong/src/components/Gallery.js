@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import * as R from 'ramda'
 
 import { Grid } from '../layouts/Grid'
 import { Modal } from './Modal'
@@ -78,10 +77,28 @@ export function Gallery() {
 }
 
 function Image({ image, alt }) {
-  console.log('image.fluid', image.fluid)
   if (image.file.contentType === 'image/svg+xml') {
     return <img style={{ width: '100%' }} src={image.file.url} alt={alt} />
   } else {
-    return <Img fluid={R.omit(['srcSet', 'srcSetWebp'], image.fluid)} alt={alt} />
+    return <Img fluid={fixTallContentfulImageNotLoading(image.fluid)} alt={alt} />
   }
+}
+
+function fixTallContentfulImageNotLoading(fluid) {
+  const srcSetkeysToModify = ['srcSet', 'srcSetWebp']
+  srcSetkeysToModify.forEach((keyToModify) => {
+    const srcSetItems = fluid[keyToModify]
+      .split(',')
+      .map((srcSetItemString) => srcSetItemString.split(' '))
+
+    const newSrcSet = srcSetItems
+      .map(([srcSetItem, intrinsicWidth]) =>
+        [srcSetItem.replace(/&h=\d+/, ''), intrinsicWidth].join(' ')
+      )
+      .join(',')
+
+    fluid[keyToModify] = newSrcSet
+  })
+
+  return fluid
 }
