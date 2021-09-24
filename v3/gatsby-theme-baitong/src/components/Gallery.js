@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import * as R from 'ramda'
 
 import { Grid } from '../layouts/Grid'
 import { Modal } from './Modal'
@@ -13,7 +14,7 @@ export function Gallery() {
           altText
           title
           thumbnail {
-            fluid(maxWidth: 600) {
+            fluid(maxWidth: 600, quality: 100) {
               ...GatsbyContentfulFluid_withWebp
             }
             file {
@@ -22,7 +23,7 @@ export function Gallery() {
             }
           }
           image {
-            fluid(maxWidth: 1200) {
+            fluid(maxWidth: 1168, quality: 100) {
               ...GatsbyContentfulFluid_withWebp
             }
             file {
@@ -77,9 +78,10 @@ export function Gallery() {
 }
 
 function Image({ image, alt }) {
+  console.log('image.fluid', image.fluid)
   if (image.file.contentType === 'image/svg+xml') {
     return <img style={{ width: '100%' }} src={image.file.url} alt={alt} />
   } else {
-    return <Img fluid={image.fluid} alt={alt} />
+    return <Img fluid={R.omit(['srcSet', 'srcSetWebp'], image.fluid)} alt={alt} />
   }
 }
