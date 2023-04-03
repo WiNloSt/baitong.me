@@ -48,7 +48,9 @@ function Home() {
                     }}>
                     I am an UX designer
                   </Styled.p>
-                  <RainbowButton sx={{ marginTop: [3, 4] }} href='/Natthapat_UX.pdf'>Resume</RainbowButton>
+                  <RainbowButton sx={{ marginTop: [3, 4] }} href="/Natthapat_resume.pdf">
+                    Resume
+                  </RainbowButton>
                 </div>
                 <img
                   alt="Baitong cartoon"
