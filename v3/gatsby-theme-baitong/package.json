@@ -7,7 +7,7 @@
     "develop": "gatsby develop"
   },
   "peerDependencies": {
-    "gatsby": "^2.6.0"
+    "gatsby": "^3.0.0"
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
@@ -30,6 +30,6 @@
     "theme-ui": "^0.2.38"
   },
   "devDependencies": {
-    "gatsby": "^2.15.2"
+    "gatsby": "^3.0.0"
   }
 }
