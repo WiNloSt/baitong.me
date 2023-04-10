@@ -46,7 +46,7 @@ function Home() {
                       fontSize: [0, 1],
                       marginTop: 1,
                     }}>
-                    I am an UX designer
+                    I am a UX designer
                   </Styled.p>
                   <RainbowButton sx={{ marginTop: [3, 4] }} href="/Natthapat_resume.pdf">
                     Resume
