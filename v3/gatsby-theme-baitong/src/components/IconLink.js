@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDribbble, faFacebook, faBehance } from '@fortawesome/free-brands-svg-icons'
+import { faDribbble, faFacebook, faBehance, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 
@@ -8,7 +8,7 @@ import css from '@styled-system/css'
  *
  * @param {object} props
  * @param {string} props.to
- * @param {'dribble' | 'behance' | 'facebook'} props.name
+ * @param {'dribble' | 'behance' | 'facebook' | 'linkedin'} props.name
  */
 export function IconLink({ to, name }) {
   return (
@@ -19,6 +19,12 @@ export function IconLink({ to, name }) {
 }
 
 const iconSize = 32
+const COLOR = '#aaa'
+
+const defaultStyle = {
+  color: COLOR,
+  fontSize: iconSize,
+}
 
 /**
  *
@@ -31,9 +37,8 @@ function Icon({ name }) {
       <FontAwesomeIcon
         icon={faDribbble}
         style={{
-          color: '#414042',
+          ...defaultStyle,
           verticalAlign: 'middle',
-          fontSize: iconSize
         }}
       />
     )
@@ -44,9 +49,8 @@ function Icon({ name }) {
       <FontAwesomeIcon
         icon={faFacebook}
         style={{
-          color: '#414042',
+          ...defaultStyle,
           verticalAlign: 'middle',
-          fontSize: iconSize
         }}
         size="3x"
       />
@@ -58,14 +62,33 @@ function Icon({ name }) {
       <Circle
         style={{
           verticalAlign: 'middle',
-          lineHeight: 1.6
+          lineHeight: 1.6,
         }}>
         <FontAwesomeIcon
           icon={faBehance}
           style={{
-            color: '#414042',
+            ...defaultStyle,
             fontSize: 20,
-            transform: 'translate(3px, 4px)'
+            transform: 'translate(3px, 4px)',
+          }}
+        />
+      </Circle>
+    )
+  }
+
+  if (name === 'linkedin') {
+    return (
+      <Circle
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <FontAwesomeIcon
+          icon={faLinkedinIn}
+          style={{
+            ...defaultStyle,
+            fontSize: 20,
           }}
         />
       </Circle>
@@ -79,13 +102,10 @@ const Circle = styled.div`
   outline: none;
   display: inline-block;
   border-radius: 50%;
+  border-color: ${COLOR};
   height: ${iconSize}px;
   width: ${iconSize}px;
   border-width: 2px;
   border-style: solid;
   box-sizing: border-box;
-
-  ${css({
-    borderColor: '#414042'
-  })}
 `

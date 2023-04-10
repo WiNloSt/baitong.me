@@ -21,7 +21,7 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: 'Nunito',
+              family: 'Inter',
               subsets: ['latin'],
             },
           ],

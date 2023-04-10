@@ -17,11 +17,12 @@ export function Footer() {
           <span sx={{ display: ['block', 'inline'], fontSize: [12, 14], marginTop: [3, 0] }}>
             Baitong.me
           </span>
-          <IconContainer>
-            <IconLink
-              to="https://www.facebook.com/Natthapattong-174414203275588/"
-              name="facebook"
-            />
+          <IconContainer
+            sx={{
+              display: 'flex',
+              gap: '12px',
+            }}>
+            <IconLink to="https://www.linkedin.com/in/natthapat/" name="linkedin" />
             <IconLink to="https://www.behance.net/onatthapato" name="behance" />
             <IconLink to="https://dribbble.com/natthapat-tong" name="dribble" />
           </IconContainer>
@@ -36,7 +37,7 @@ const Divider = styled.div`
   border-top: 1px solid #c4c4c4;
 
   ${css({
-    width: [200, 450]
+    width: [200, 450],
   })}
 `
 
@@ -47,19 +48,13 @@ const FooterBody = styled.div`
 
   ${css({
     flexDirection: ['column', 'row'],
-    height: [128, 128]
+    height: [128, 128],
   })}
 `
 
 const IconContainer = styled.div`
   ${css({
     marginTop: [12, 0],
-    marginLeft: [0, 'auto']
+    marginLeft: [0, 'auto'],
   })}
-
-  & > * + * {
-    ${css({
-      marginLeft: 2
-    })}
-  }
 `

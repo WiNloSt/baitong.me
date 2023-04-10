@@ -3,12 +3,13 @@ import React from 'react'
 import { Layout, Main, Styled, jsx } from 'theme-ui'
 import './style.css'
 import SEO from '../../components/SEO'
-import { RainbowButton } from '../../components/RainbowButton'
-import profilePicture from './assets/profilePicture.svg'
+// import profilePicture from './assets/profilePicture.svg'
+import heroImage from './assets/heroImage.svg'
 import { Flex } from '../../layouts/Flex'
 import { Gallery } from '../../components/Gallery'
 import { Footer } from '../../components/Footer'
 import { Container } from '../../components/Container'
+import CTALinkButton from '../../components/CTALinkButton'
 
 export default Home
 
@@ -23,13 +24,12 @@ function Home() {
             sx={{
               position: 'relative',
               zIndex: 0,
-              backgroundColor: 'lessWhite',
             }}>
             <Container>
               <Flex
                 sx={{
                   paddingTop: [5, 6],
-                  paddingBottom: [4, 5],
+                  paddingBottom: [3, 0],
                   justifyContent: ['center', 'flex-start'],
                   flexWrap: ['wrap-reverse', 'nowrap'],
                 }}>
@@ -40,22 +40,23 @@ function Home() {
                     marginBottom: [0, 5],
                     textAlign: ['center', 'left'],
                   }}>
-                  <Styled.h2 sx={{ margin: 0 }}>Baitong</Styled.h2>
+                  <Styled.h2 sx={{ margin: 0, marginTop: 3 }}>NATTHAPAT (Annie)</Styled.h2>
                   <Styled.p
                     sx={{
-                      fontSize: [0, 1],
-                      marginTop: 1,
+                      marginTop: 3,
                     }}>
-                    I am a UX designer
+                    I am a UX Designer with 4 years of experience designing websites and
+                    applications for a wide range of industries including deliveries, logistics,
+                    finance, and IT.
                   </Styled.p>
-                  <RainbowButton sx={{ marginTop: [3, 4] }} href="/Natthapat_resume.pdf">
+                  <CTALinkButton sx={{ marginTop: [4, '24px'] }} href="/Natthapat_resume.pdf">
                     Resume
-                  </RainbowButton>
+                  </CTALinkButton>
                 </div>
                 <img
                   alt="Baitong cartoon"
                   sx={{ marginLeft: [null, 'auto'], maxWidth: '100%' }}
-                  src={profilePicture}
+                  src={heroImage}
                 />
               </Flex>
             </Container>
